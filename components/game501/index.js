@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -35,6 +36,25 @@ const InputNumber = styled.input`
 `;
 
 export default function Game501Layout() {
+  const [result, setResult] = useState([501, 501]);
+  const [inputValue, setInputValue] = useState("");
+  console.log(inputValue);
+  function handleSubScore(event) {
+    if (event.key === "Enter") {
+      setResult([result[0] - event.target.value, result[1]]);
+      console.log(result);
+
+      if (result[0] === 0) {
+        console.log("player one wins");
+      }
+    }
+  }
+  function handleSubScoreTwo(event) {
+    if (event.key === "Enter") {
+      setResult([result[0], result[1] - event.target.value]);
+    }
+  }
+
   return (
     <Container>
       <Table>
@@ -64,18 +84,23 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldOne-one"
                 aria-label="input-field-one-from-player-one"
+                /* onChange={(event) =>
+                  setInputValue([event.target.value, ...inputValue])
+                } */
+                onKeyDown={handleSubScore}
               />
             </TableCell>
-            <TableCell>401</TableCell>
+            <TableCell>{result[0]}</TableCell>
             <TableCell>
               <label htmlFor="fieldTwo-one" />
               <InputNumber
                 type="number"
                 name="fieldtwo-one"
                 aria-label="input-field-one-from-player-two"
+                onKeyDown={handleSubScoreTwo}
               />
             </TableCell>
-            <TableCell>411</TableCell>
+            <TableCell>{result[1]}</TableCell>
           </tr>
           <tr>
             <TableCell>
@@ -84,9 +109,10 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldOne-two"
                 aria-label="input-field-two-from-player-one"
+                onKeyDown={handleSubScore}
               />
             </TableCell>
-            <TableCell>401</TableCell>
+            <TableCell>{result[0]}</TableCell>
             <TableCell>
               <label htmlFor="fieldTwo-two" />
               <InputNumber
