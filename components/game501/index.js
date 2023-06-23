@@ -40,7 +40,7 @@ export default function Game501Layout() {
           </tr>
           <tr>
             <TableHead>Scored</TableHead>
-            <TableHead>ToGo</TableHead>
+            <TableHead>To Go</TableHead>
             <TableHead>Scored</TableHead>
             <TableHead>ToGo</TableHead>
           </tr>
