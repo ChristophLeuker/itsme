@@ -29,6 +29,11 @@ const TableCell = styled.td`
   height: 2rem;
 `;
 
+const InputNumber = styled.input`
+  width: 3rem;
+  background-color: none;
+`;
+
 export default function Game501Layout() {
   return (
     <Container>
@@ -42,7 +47,7 @@ export default function Game501Layout() {
             <TableHead>Scored</TableHead>
             <TableHead>To Go</TableHead>
             <TableHead>Scored</TableHead>
-            <TableHead>ToGo</TableHead>
+            <TableHead>To Go</TableHead>
           </tr>
         </thead>
         <tbody>
@@ -53,58 +58,244 @@ export default function Game501Layout() {
             <TableCell>501</TableCell>
           </tr>
           <tr>
-            <TableCell>100</TableCell>
+            <TableCell>
+              <label htmlFor="fieldOne-one" />
+              <InputNumber
+                type="number"
+                name="fieldOne-one"
+                aria-label="input-field-one-from-player-one"
+              />
+            </TableCell>
             <TableCell>401</TableCell>
-            <TableCell>90</TableCell>
+            <TableCell>
+              <label htmlFor="fieldTwo-one" />
+              <InputNumber
+                type="number"
+                name="fieldtwo-one"
+                aria-label="input-field-one-from-player-two"
+              />
+            </TableCell>
             <TableCell>411</TableCell>
           </tr>
           <tr>
-            <TableCell>60</TableCell>
-            <TableCell>341</TableCell>
-            <TableCell>45</TableCell>
-            <TableCell>366</TableCell>
+            <TableCell>
+              <label htmlFor="fieldOne-two" />
+              <InputNumber
+                type="number"
+                name="fieldOne-two"
+                aria-label="input-field-two-from-player-one"
+              />
+            </TableCell>
+            <TableCell>401</TableCell>
+            <TableCell>
+              <label htmlFor="fieldTwo-two" />
+              <InputNumber
+                type="number"
+                name="fieldtwo-two"
+                aria-label="input-field-two-from-player-two"
+              />
+            </TableCell>
+            <TableCell>411</TableCell>
           </tr>
           <tr>
-            <TableCell>125</TableCell>
-            <TableCell>216</TableCell>
-            <TableCell>26</TableCell>
-            <TableCell>340</TableCell>
+            <TableCell>
+              <label htmlFor="fieldOne-three" />
+              <InputNumber
+                type="number"
+                name="fieldOne-three"
+                aria-label="input-field-three-from-player-one"
+              />
+            </TableCell>
+            <TableCell>401</TableCell>
+            <TableCell>
+              <label htmlFor="fieldTwo-three" />
+              <InputNumber
+                type="number"
+                name="fieldtwo-three"
+                aria-label="input-field-three-from-player-two"
+              />
+            </TableCell>
+            <TableCell>411</TableCell>
           </tr>
           <tr>
-            <TableCell>116</TableCell>
-            <TableCell>100</TableCell>
-            <TableCell>140</TableCell>
-            <TableCell>200</TableCell>
+            <TableCell>
+              <label htmlFor="fieldOne-four" />
+              <InputNumber
+                type="number"
+                name="fieldOne-four"
+                aria-label="input-field-four-from-player-one"
+              />
+            </TableCell>
+            <TableCell>401</TableCell>
+            <TableCell>
+              <label htmlFor="fieldTwo-four" />
+              <InputNumber
+                type="number"
+                name="fieldtwo-four"
+                aria-label="input-field-four-from-player-two"
+              />
+            </TableCell>
+            <TableCell>411</TableCell>
           </tr>
           <tr>
-            <TableCell>100</TableCell>
-            <TableCell>0</TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
+            <TableCell>
+              <label htmlFor="fieldOne-five" />
+              <InputNumber
+                type="number"
+                name="fieldOne-five"
+                aria-label="input-field-five-from-player-one"
+              />
+            </TableCell>
+            <TableCell>401</TableCell>
+            <TableCell>
+              <label htmlFor="fieldTwo-five" />
+              <InputNumber
+                type="number"
+                name="fieldtwo-five"
+                aria-label="input-field-five-from-player-two"
+              />
+            </TableCell>
+            <TableCell>411</TableCell>
           </tr>
           <tr>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
+            <TableCell>
+              <label htmlFor="fieldOne-six" />
+              <InputNumber
+                type="number"
+                name="fieldOne-six"
+                aria-label="input-field-six-from-player-one"
+              />
+            </TableCell>
+            <TableCell>401</TableCell>
+            <TableCell>
+              <label htmlFor="fieldTwo-one" />
+              <InputNumber
+                type="number"
+                name="fieldtwo-one"
+                aria-label="input-field-six-from-player-two"
+              />
+            </TableCell>
+            <TableCell>411</TableCell>
           </tr>
           <tr>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
+            <TableCell>
+              <label htmlFor="fieldOne-seven" />
+              <InputNumber
+                type="number"
+                name="fieldOne-seven"
+                aria-label="input-field-seven-from-player-one"
+              />
+            </TableCell>
+            <TableCell>401</TableCell>
+            <TableCell>
+              <label htmlFor="fieldTwo-seven" />
+              <InputNumber
+                type="number"
+                name="fieldtwo-seven"
+                aria-label="input-field-seven-from-player-two"
+              />
+            </TableCell>
+            <TableCell>411</TableCell>
           </tr>
           <tr>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
+            <TableCell>
+              <label htmlFor="fieldOne-eight" />
+              <InputNumber
+                type="number"
+                name="fieldOne-eight"
+                aria-label="input-field-eight-from-player-one"
+              />
+            </TableCell>
+            <TableCell>401</TableCell>
+            <TableCell>
+              <label htmlFor="fieldTwo-eight" />
+              <InputNumber
+                type="number"
+                name="fieldtwo-eight"
+                aria-label="input-field-eight-from-player-two"
+              />
+            </TableCell>
+            <TableCell>411</TableCell>
           </tr>
           <tr>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
+            <TableCell>
+              <label htmlFor="fieldOne-nine" />
+              <InputNumber
+                type="number"
+                name="fieldOne-nine"
+                aria-label="input-field-nine-from-player-one"
+              />
+            </TableCell>
+            <TableCell>401</TableCell>
+            <TableCell>
+              <label htmlFor="fieldTwo-nine" />
+              <InputNumber
+                type="number"
+                name="fieldtwo-nine"
+                aria-label="input-field-nine-from-player-two"
+              />
+            </TableCell>
+            <TableCell>411</TableCell>
+          </tr>
+          <tr>
+            <TableCell>
+              <label htmlFor="fieldOne-ten" />
+              <InputNumber
+                type="number"
+                name="fieldOne-ten"
+                aria-label="input-field-ten-from-player-one"
+              />
+            </TableCell>
+            <TableCell>401</TableCell>
+            <TableCell>
+              <label htmlFor="fieldTwo-ten" />
+              <InputNumber
+                type="number"
+                name="fieldtwo-ten"
+                aria-label="input-field-ten-from-player-two"
+              />
+            </TableCell>
+            <TableCell>411</TableCell>
+          </tr>
+          <tr>
+            <TableCell>
+              <label htmlFor="fieldOne-eleven" />
+              <InputNumber
+                type="number"
+                name="fieldOne-eleven"
+                aria-label="input-field-eleven-from-player-one"
+              />
+            </TableCell>
+            <TableCell>401</TableCell>
+            <TableCell>
+              <label htmlFor="fieldTwo-eleven" />
+              <InputNumber
+                type="number"
+                name="fieldtwo-eleven"
+                aria-label="input-field-eleven-from-player-two"
+              />
+            </TableCell>
+            <TableCell>411</TableCell>
+          </tr>
+          <tr>
+            <TableCell>
+              <label htmlFor="fieldOne-twelve" />
+              <InputNumber
+                type="number"
+                name="fieldOne-twelve"
+                aria-label="input-field-twelve-from-player-one"
+              />
+            </TableCell>
+            <TableCell>401</TableCell>
+            <TableCell>
+              <label htmlFor="fieldTwo-twelve" />
+              <InputNumber
+                type="number"
+                name="fieldtwo-twelve"
+                aria-label="input-field-twelve-from-player-two"
+              />
+            </TableCell>
+            <TableCell>411</TableCell>
           </tr>
         </tbody>
       </Table>
