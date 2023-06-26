@@ -32,7 +32,8 @@ const TableCell = styled.td`
 
 const InputNumber = styled.input`
   width: 3rem;
-  background-color: none;
+  background-color: transparent;
+  border: none;
 `;
 
 export default function Game501Layout() {
@@ -74,7 +75,7 @@ export default function Game501Layout() {
             <TableCell>
               <label htmlFor="fieldOne-one" />
               <InputNumber
-                type="text"
+                type="number"
                 name="fieldOne-one"
                 aria-label="input-field-one-from-player-one"
                 onKeyDown={(e) => {
@@ -123,7 +124,7 @@ export default function Game501Layout() {
                 aria-label="input-field-two-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    if (e.target.value >= 0 && e.target.value <= 180) {
+                    if (e.target.value > 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
                         ...singleResultPlayerOne,
@@ -169,6 +170,12 @@ export default function Game501Layout() {
                 aria-label="input-field-three-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerOne[1]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
@@ -191,6 +198,12 @@ export default function Game501Layout() {
                 aria-label="input-field-three-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerTwo[1]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
@@ -215,6 +228,12 @@ export default function Game501Layout() {
                 aria-label="input-field-four-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerOne[2]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
@@ -237,6 +256,12 @@ export default function Game501Layout() {
                 aria-label="input-field-four-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerTwo[2]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
@@ -261,6 +286,12 @@ export default function Game501Layout() {
                 aria-label="input-field-five-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerOne[3]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
@@ -283,6 +314,12 @@ export default function Game501Layout() {
                 aria-label="input-field-five-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerTwo[3]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
@@ -307,6 +344,12 @@ export default function Game501Layout() {
                 aria-label="input-field-six-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerOne[4]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
@@ -329,6 +372,12 @@ export default function Game501Layout() {
                 aria-label="input-field-six-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerTwo[4]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
@@ -353,6 +402,12 @@ export default function Game501Layout() {
                 aria-label="input-field-seven-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerOne[5]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
@@ -375,6 +430,12 @@ export default function Game501Layout() {
                 aria-label="input-field-seven-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerTwo[5]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
@@ -399,7 +460,13 @@ export default function Game501Layout() {
                 aria-label="input-field-eight-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    if (e.target.value >= 0 && e.target.value <= 180) {
+                    if (e.target.value >= singleResultPlayerOne[6]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
+                    if (e.target.value > 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
                         ...singleResultPlayerOne,
@@ -421,6 +488,12 @@ export default function Game501Layout() {
                 aria-label="input-field-eight-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerTwo[6]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
@@ -445,6 +518,12 @@ export default function Game501Layout() {
                 aria-label="input-field-nine-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerOne[7]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
@@ -467,6 +546,12 @@ export default function Game501Layout() {
                 aria-label="input-field-nine-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerTwo[7]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
@@ -491,6 +576,12 @@ export default function Game501Layout() {
                 aria-label="input-field-ten-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerOne[8]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
@@ -513,6 +604,12 @@ export default function Game501Layout() {
                 aria-label="input-field-ten-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerTwo[8]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
@@ -537,6 +634,12 @@ export default function Game501Layout() {
                 aria-label="input-field-eleven-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerOne[9]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
@@ -559,6 +662,12 @@ export default function Game501Layout() {
                 aria-label="input-field-eleven-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerTwo[9]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
@@ -583,6 +692,12 @@ export default function Game501Layout() {
                 aria-label="input-field-twelve-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerOne[10]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
@@ -605,6 +720,12 @@ export default function Game501Layout() {
                 aria-label="input-field-twelve-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    if (e.target.value > singleResultPlayerTwo[10]) {
+                      alert(
+                        "The score you got is higher than your left score, pls insert a correct number"
+                      );
+                      return;
+                    }
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
