@@ -39,9 +39,14 @@ export default function Game501Layout() {
   const [resultPlayerOne, setResultPlayerOne] = useState(501);
   const [singleResultPlayerOne, setSingleResultPlayerOne] = useState([]);
   const [resultPlayerTwo, setResultPlayerTwo] = useState(501);
+  const [singleResultPlayerTwo, setSingleResultPlayerTwo] = useState([]);
 
   console.log(singleResultPlayerOne);
   console.log(resultPlayerOne);
+
+  if (resultPlayerOne === 0) {
+    alert("PlayerOneWins");
+  }
 
   return (
     <Container>
@@ -89,10 +94,17 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldtwo-one"
                 aria-label="input-field-one-from-player-two"
-                /* onKeyDown={} */
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                    setSingleResultPlayerTwo([
+                      resultPlayerTwo - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>{resultPlayerTwo}</TableCell>
+            <TableCell>{singleResultPlayerTwo[0]}</TableCell>
           </tr>
           <tr>
             <TableCell>
@@ -119,9 +131,18 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldtwo-two"
                 aria-label="input-field-two-from-player-two"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                    setSingleResultPlayerTwo([
+                      ...singleResultPlayerTwo,
+                      singleResultPlayerTwo[0] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>411</TableCell>
+            <TableCell>{singleResultPlayerTwo[1]}</TableCell>
           </tr>
           <tr>
             <TableCell>
@@ -148,9 +169,18 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldtwo-three"
                 aria-label="input-field-three-from-player-two"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                    setSingleResultPlayerTwo([
+                      ...singleResultPlayerTwo,
+                      singleResultPlayerTwo[1] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>411</TableCell>
+            <TableCell>{singleResultPlayerTwo[2]}</TableCell>
           </tr>
           <tr>
             <TableCell>
@@ -159,18 +189,36 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldOne-four"
                 aria-label="input-field-four-from-player-one"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerOne(resultPlayerOne - e.target.value);
+                    setSingleResultPlayerOne([
+                      ...singleResultPlayerOne,
+                      singleResultPlayerOne[2] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>401</TableCell>
+            <TableCell>{singleResultPlayerOne[3]}</TableCell>
             <TableCell>
               <label htmlFor="fieldTwo-four" />
               <InputNumber
                 type="number"
                 name="fieldtwo-four"
                 aria-label="input-field-four-from-player-two"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                    setSingleResultPlayerTwo([
+                      ...singleResultPlayerTwo,
+                      singleResultPlayerTwo[2] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>411</TableCell>
+            <TableCell>{singleResultPlayerTwo[3]}</TableCell>
           </tr>
           <tr>
             <TableCell>
@@ -179,18 +227,36 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldOne-five"
                 aria-label="input-field-five-from-player-one"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerOne(resultPlayerOne - e.target.value);
+                    setSingleResultPlayerOne([
+                      ...singleResultPlayerOne,
+                      singleResultPlayerOne[3] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>401</TableCell>
+            <TableCell>{singleResultPlayerOne[4]}</TableCell>
             <TableCell>
               <label htmlFor="fieldTwo-five" />
               <InputNumber
                 type="number"
                 name="fieldtwo-five"
                 aria-label="input-field-five-from-player-two"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                    setSingleResultPlayerTwo([
+                      ...singleResultPlayerTwo,
+                      singleResultPlayerTwo[3] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>411</TableCell>
+            <TableCell>{singleResultPlayerTwo[4]}</TableCell>
           </tr>
           <tr>
             <TableCell>
@@ -199,18 +265,36 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldOne-six"
                 aria-label="input-field-six-from-player-one"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerOne(resultPlayerOne - e.target.value);
+                    setSingleResultPlayerOne([
+                      ...singleResultPlayerOne,
+                      singleResultPlayerOne[4] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>401</TableCell>
+            <TableCell>{singleResultPlayerOne[5]}</TableCell>
             <TableCell>
               <label htmlFor="fieldTwo-one" />
               <InputNumber
                 type="number"
                 name="fieldtwo-one"
                 aria-label="input-field-six-from-player-two"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                    setSingleResultPlayerTwo([
+                      ...singleResultPlayerTwo,
+                      singleResultPlayerTwo[4] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>411</TableCell>
+            <TableCell>{singleResultPlayerTwo[5]}</TableCell>
           </tr>
           <tr>
             <TableCell>
@@ -219,18 +303,36 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldOne-seven"
                 aria-label="input-field-seven-from-player-one"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerOne(resultPlayerOne - e.target.value);
+                    setSingleResultPlayerOne([
+                      ...singleResultPlayerOne,
+                      singleResultPlayerOne[5] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>401</TableCell>
+            <TableCell>{singleResultPlayerOne[6]}</TableCell>
             <TableCell>
               <label htmlFor="fieldTwo-seven" />
               <InputNumber
                 type="number"
                 name="fieldtwo-seven"
                 aria-label="input-field-seven-from-player-two"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                    setSingleResultPlayerTwo([
+                      ...singleResultPlayerTwo,
+                      singleResultPlayerTwo[5] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>411</TableCell>
+            <TableCell>{singleResultPlayerTwo[6]}</TableCell>
           </tr>
           <tr>
             <TableCell>
@@ -239,18 +341,36 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldOne-eight"
                 aria-label="input-field-eight-from-player-one"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerOne(resultPlayerOne - e.target.value);
+                    setSingleResultPlayerOne([
+                      ...singleResultPlayerOne,
+                      singleResultPlayerOne[6] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>401</TableCell>
+            <TableCell>{singleResultPlayerOne[7]}</TableCell>
             <TableCell>
               <label htmlFor="fieldTwo-eight" />
               <InputNumber
                 type="number"
                 name="fieldtwo-eight"
                 aria-label="input-field-eight-from-player-two"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                    setSingleResultPlayerTwo([
+                      ...singleResultPlayerTwo,
+                      singleResultPlayerTwo[6] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>411</TableCell>
+            <TableCell>{singleResultPlayerTwo[7]}</TableCell>
           </tr>
           <tr>
             <TableCell>
@@ -259,18 +379,36 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldOne-nine"
                 aria-label="input-field-nine-from-player-one"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerOne(resultPlayerOne - e.target.value);
+                    setSingleResultPlayerOne([
+                      ...singleResultPlayerOne,
+                      singleResultPlayerOne[7] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>401</TableCell>
+            <TableCell>{singleResultPlayerOne[8]}</TableCell>
             <TableCell>
               <label htmlFor="fieldTwo-nine" />
               <InputNumber
                 type="number"
                 name="fieldtwo-nine"
                 aria-label="input-field-nine-from-player-two"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                    setSingleResultPlayerTwo([
+                      ...singleResultPlayerTwo,
+                      singleResultPlayerTwo[7] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>411</TableCell>
+            <TableCell>{singleResultPlayerTwo[8]}</TableCell>
           </tr>
           <tr>
             <TableCell>
@@ -279,18 +417,36 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldOne-ten"
                 aria-label="input-field-ten-from-player-one"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerOne(resultPlayerOne - e.target.value);
+                    setSingleResultPlayerOne([
+                      ...singleResultPlayerOne,
+                      singleResultPlayerOne[8] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>401</TableCell>
+            <TableCell>{singleResultPlayerOne[9]}</TableCell>
             <TableCell>
               <label htmlFor="fieldTwo-ten" />
               <InputNumber
                 type="number"
                 name="fieldtwo-ten"
                 aria-label="input-field-ten-from-player-two"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                    setSingleResultPlayerTwo([
+                      ...singleResultPlayerTwo,
+                      singleResultPlayerTwo[8] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>411</TableCell>
+            <TableCell>{singleResultPlayerTwo[9]}</TableCell>
           </tr>
           <tr>
             <TableCell>
@@ -299,18 +455,36 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldOne-eleven"
                 aria-label="input-field-eleven-from-player-one"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerOne(resultPlayerOne - e.target.value);
+                    setSingleResultPlayerOne([
+                      ...singleResultPlayerOne,
+                      singleResultPlayerOne[9] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>401</TableCell>
+            <TableCell>{singleResultPlayerOne[10]}</TableCell>
             <TableCell>
               <label htmlFor="fieldTwo-eleven" />
               <InputNumber
                 type="number"
                 name="fieldtwo-eleven"
                 aria-label="input-field-eleven-from-player-two"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                    setSingleResultPlayerTwo([
+                      ...singleResultPlayerTwo,
+                      singleResultPlayerTwo[9] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>411</TableCell>
+            <TableCell>{singleResultPlayerTwo[10]}</TableCell>
           </tr>
           <tr>
             <TableCell>
@@ -319,18 +493,36 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldOne-twelve"
                 aria-label="input-field-twelve-from-player-one"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerOne(resultPlayerOne - e.target.value);
+                    setSingleResultPlayerOne([
+                      ...singleResultPlayerOne,
+                      singleResultPlayerOne[10] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>401</TableCell>
+            <TableCell>{singleResultPlayerOne[11]}</TableCell>
             <TableCell>
               <label htmlFor="fieldTwo-twelve" />
               <InputNumber
                 type="number"
                 name="fieldtwo-twelve"
                 aria-label="input-field-twelve-from-player-two"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                    setSingleResultPlayerTwo([
+                      ...singleResultPlayerTwo,
+                      singleResultPlayerTwo[10] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>411</TableCell>
+            <TableCell>{singleResultPlayerTwo[11]}</TableCell>
           </tr>
         </tbody>
       </Table>
