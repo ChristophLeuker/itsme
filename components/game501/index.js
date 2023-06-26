@@ -41,7 +41,7 @@ export default function Game501Layout() {
   const [singleResultPlayerOne, setSingleResultPlayerOne] = useState([]);
   const [resultPlayerTwo, setResultPlayerTwo] = useState(501);
   const [singleResultPlayerTwo, setSingleResultPlayerTwo] = useState([]);
-
+  console.log(singleResultPlayerOne);
   if (resultPlayerOne === 0) {
     alert("Player One Wins");
   }
@@ -83,7 +83,8 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
-                        resultPlayerOne - e.target.value,
+                        501 - e.target.value,
+                        ...singleResultPlayerOne.slice(0 + 1),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -104,7 +105,8 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
-                        resultPlayerTwo - e.target.value,
+                        501 - e.target.value,
+                        ...singleResultPlayerTwo.slice(0 + 1),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -127,8 +129,9 @@ export default function Game501Layout() {
                     if (e.target.value > 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
-                        ...singleResultPlayerOne,
+                        ...singleResultPlayerOne.slice(0, 0 + 1),
                         singleResultPlayerOne[0] - e.target.value,
+                        ...singleResultPlayerOne.slice(0 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -149,8 +152,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
-                        ...singleResultPlayerTwo,
+                        ...singleResultPlayerTwo.slice(0, 0 + 1),
                         singleResultPlayerTwo[0] - e.target.value,
+                        ...singleResultPlayerTwo.slice(0 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -179,8 +183,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
-                        ...singleResultPlayerOne,
+                        ...singleResultPlayerOne.slice(0, 1 + 1),
                         singleResultPlayerOne[1] - e.target.value,
+                        ...singleResultPlayerOne.slice(1 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -207,8 +212,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
-                        ...singleResultPlayerTwo,
+                        ...singleResultPlayerTwo.slice(0, 1 + 1),
                         singleResultPlayerTwo[1] - e.target.value,
+                        ...singleResultPlayerTwo.slice(1 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -237,8 +243,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
-                        ...singleResultPlayerOne,
+                        ...singleResultPlayerOne.slice(0, 2 + 1),
                         singleResultPlayerOne[2] - e.target.value,
+                        ...singleResultPlayerOne.slice(2 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -265,8 +272,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
-                        ...singleResultPlayerTwo,
+                        ...singleResultPlayerTwo.slice(0, 2 + 1),
                         singleResultPlayerTwo[2] - e.target.value,
+                        ...singleResultPlayerTwo.slice(2 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -295,8 +303,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
-                        ...singleResultPlayerOne,
+                        ...singleResultPlayerOne.slice(0, 3 + 1),
                         singleResultPlayerOne[3] - e.target.value,
+                        ...singleResultPlayerOne.slice(3 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -323,8 +332,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
-                        ...singleResultPlayerTwo,
+                        ...singleResultPlayerTwo.slice(0, 3 + 1),
                         singleResultPlayerTwo[3] - e.target.value,
+                        ...singleResultPlayerTwo.slice(3 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -353,8 +363,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
-                        ...singleResultPlayerOne,
+                        ...singleResultPlayerOne.slice(0, 4 + 1),
                         singleResultPlayerOne[4] - e.target.value,
+                        ...singleResultPlayerOne.slice(4 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -381,8 +392,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
-                        ...singleResultPlayerTwo,
+                        ...singleResultPlayerTwo.slice(0, 4 + 1),
                         singleResultPlayerTwo[4] - e.target.value,
+                        ...singleResultPlayerTwo.slice(4 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -411,8 +423,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
-                        ...singleResultPlayerOne,
+                        ...singleResultPlayerOne.slice(0, 5 + 1),
                         singleResultPlayerOne[5] - e.target.value,
+                        ...singleResultPlayerOne.slice(5 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -439,8 +452,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
-                        ...singleResultPlayerTwo,
+                        ...singleResultPlayerTwo.slice(0, 5 + 1),
                         singleResultPlayerTwo[5] - e.target.value,
+                        ...singleResultPlayerTwo.slice(5 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -469,8 +483,9 @@ export default function Game501Layout() {
                     if (e.target.value > 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
-                        ...singleResultPlayerOne,
+                        ...singleResultPlayerOne.slice(0, 6 + 1),
                         singleResultPlayerOne[6] - e.target.value,
+                        ...singleResultPlayerOne.slice(6 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -497,8 +512,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
-                        ...singleResultPlayerTwo,
+                        ...singleResultPlayerTwo.slice(0, 6 + 1),
                         singleResultPlayerTwo[6] - e.target.value,
+                        ...singleResultPlayerTwo.slice(6 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -527,8 +543,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
-                        ...singleResultPlayerOne,
+                        ...singleResultPlayerOne.slice(0, 7 + 1),
                         singleResultPlayerOne[7] - e.target.value,
+                        ...singleResultPlayerOne.slice(7 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -555,8 +572,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
-                        ...singleResultPlayerTwo,
+                        ...singleResultPlayerTwo.slice(0, 7 + 1),
                         singleResultPlayerTwo[7] - e.target.value,
+                        ...singleResultPlayerTwo.slice(7 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -585,8 +603,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
-                        ...singleResultPlayerOne,
+                        ...singleResultPlayerOne.slice(0, 8 + 1),
                         singleResultPlayerOne[8] - e.target.value,
+                        ...singleResultPlayerOne.slice(8 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -613,8 +632,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
-                        ...singleResultPlayerTwo,
+                        ...singleResultPlayerTwo.slice(0, 8 + 1),
                         singleResultPlayerTwo[8] - e.target.value,
+                        ...singleResultPlayerTwo.slice(8 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -643,8 +663,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
-                        ...singleResultPlayerOne,
+                        ...singleResultPlayerOne.slice(0, 9 + 1),
                         singleResultPlayerOne[9] - e.target.value,
+                        ...singleResultPlayerOne.slice(9 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -671,8 +692,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
-                        ...singleResultPlayerTwo,
+                        ...singleResultPlayerTwo.slice(0, 9 + 1),
                         singleResultPlayerTwo[9] - e.target.value,
+                        ...singleResultPlayerTwo.slice(9 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -701,8 +723,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
-                        ...singleResultPlayerOne,
+                        ...singleResultPlayerOne.slice(0, 10 + 1),
                         singleResultPlayerOne[10] - e.target.value,
+                        ...singleResultPlayerOne.slice(10 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
@@ -729,8 +752,9 @@ export default function Game501Layout() {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerTwo(resultPlayerTwo - e.target.value);
                       setSingleResultPlayerTwo([
-                        ...singleResultPlayerTwo,
+                        ...singleResultPlayerTwo.slice(0, 10 + 1),
                         singleResultPlayerTwo[10] - e.target.value,
+                        ...singleResultPlayerTwo.slice(10 + 2),
                       ]);
                     } else {
                       alert("insert a number between 0 and 180");
