@@ -36,24 +36,12 @@ const InputNumber = styled.input`
 `;
 
 export default function Game501Layout() {
-  const [result, setResult] = useState([501, 501]);
-  const [inputValue, setInputValue] = useState("");
-  console.log(inputValue);
-  function handleSubScore(event) {
-    if (event.key === "Enter") {
-      setResult([result[0] - event.target.value, result[1]]);
-      console.log(result);
+  const [resultPlayerOne, setResultPlayerOne] = useState(501);
+  const [singleResultPlayerOne, setSingleResultPlayerOne] = useState([]);
+  const [resultPlayerTwo, setResultPlayerTwo] = useState(501);
 
-      if (result[0] === 0) {
-        console.log("player one wins");
-      }
-    }
-  }
-  function handleSubScoreTwo(event) {
-    if (event.key === "Enter") {
-      setResult([result[0], result[1] - event.target.value]);
-    }
-  }
+  console.log(singleResultPlayerOne);
+  console.log(resultPlayerOne);
 
   return (
     <Container>
@@ -84,23 +72,27 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldOne-one"
                 aria-label="input-field-one-from-player-one"
-                /* onChange={(event) =>
-                  setInputValue([event.target.value, ...inputValue])
-                } */
-                onKeyDown={handleSubScore}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerOne(resultPlayerOne - e.target.value);
+                    setSingleResultPlayerOne([
+                      resultPlayerOne - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>{result[0]}</TableCell>
+            <TableCell>{singleResultPlayerOne[0]}</TableCell>
             <TableCell>
               <label htmlFor="fieldTwo-one" />
               <InputNumber
                 type="number"
                 name="fieldtwo-one"
                 aria-label="input-field-one-from-player-two"
-                onKeyDown={handleSubScoreTwo}
+                /* onKeyDown={} */
               />
             </TableCell>
-            <TableCell>{result[1]}</TableCell>
+            <TableCell>{resultPlayerTwo}</TableCell>
           </tr>
           <tr>
             <TableCell>
@@ -109,10 +101,18 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldOne-two"
                 aria-label="input-field-two-from-player-one"
-                onKeyDown={handleSubScore}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerOne(resultPlayerOne - e.target.value);
+                    setSingleResultPlayerOne([
+                      ...singleResultPlayerOne,
+                      singleResultPlayerOne[0] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>{result[0]}</TableCell>
+            <TableCell>{singleResultPlayerOne[1]}</TableCell>
             <TableCell>
               <label htmlFor="fieldTwo-two" />
               <InputNumber
@@ -130,9 +130,18 @@ export default function Game501Layout() {
                 type="number"
                 name="fieldOne-three"
                 aria-label="input-field-three-from-player-one"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setResultPlayerOne(resultPlayerOne - e.target.value);
+                    setSingleResultPlayerOne([
+                      ...singleResultPlayerOne,
+                      singleResultPlayerOne[1] - e.target.value,
+                    ]);
+                  }
+                }}
               />
             </TableCell>
-            <TableCell>401</TableCell>
+            <TableCell>{singleResultPlayerOne[2]}</TableCell>
             <TableCell>
               <label htmlFor="fieldTwo-three" />
               <InputNumber
