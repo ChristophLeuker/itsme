@@ -41,11 +41,11 @@ export default function Game501Layout() {
   const [resultPlayerTwo, setResultPlayerTwo] = useState(501);
   const [singleResultPlayerTwo, setSingleResultPlayerTwo] = useState([]);
 
-  console.log(singleResultPlayerOne);
-  console.log(resultPlayerOne);
-
   if (resultPlayerOne === 0) {
-    alert("PlayerOneWins");
+    alert("Player One Wins");
+  }
+  if (resultPlayerTwo === 0) {
+    alert("Player Two Wins");
   }
 
   return (
@@ -74,15 +74,19 @@ export default function Game501Layout() {
             <TableCell>
               <label htmlFor="fieldOne-one" />
               <InputNumber
-                type="number"
+                type="text"
                 name="fieldOne-one"
                 aria-label="input-field-one-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerOne(resultPlayerOne - e.target.value);
-                    setSingleResultPlayerOne([
-                      resultPlayerOne - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerOne(resultPlayerOne - e.target.value);
+                      setSingleResultPlayerOne([
+                        resultPlayerOne - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -96,10 +100,14 @@ export default function Game501Layout() {
                 aria-label="input-field-one-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                    setSingleResultPlayerTwo([
-                      resultPlayerTwo - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                      setSingleResultPlayerTwo([
+                        resultPlayerTwo - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -115,11 +123,15 @@ export default function Game501Layout() {
                 aria-label="input-field-two-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerOne(resultPlayerOne - e.target.value);
-                    setSingleResultPlayerOne([
-                      ...singleResultPlayerOne,
-                      singleResultPlayerOne[0] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerOne(resultPlayerOne - e.target.value);
+                      setSingleResultPlayerOne([
+                        ...singleResultPlayerOne,
+                        singleResultPlayerOne[0] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -133,11 +145,15 @@ export default function Game501Layout() {
                 aria-label="input-field-two-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                    setSingleResultPlayerTwo([
-                      ...singleResultPlayerTwo,
-                      singleResultPlayerTwo[0] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                      setSingleResultPlayerTwo([
+                        ...singleResultPlayerTwo,
+                        singleResultPlayerTwo[0] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -153,11 +169,15 @@ export default function Game501Layout() {
                 aria-label="input-field-three-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerOne(resultPlayerOne - e.target.value);
-                    setSingleResultPlayerOne([
-                      ...singleResultPlayerOne,
-                      singleResultPlayerOne[1] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerOne(resultPlayerOne - e.target.value);
+                      setSingleResultPlayerOne([
+                        ...singleResultPlayerOne,
+                        singleResultPlayerOne[1] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -171,11 +191,15 @@ export default function Game501Layout() {
                 aria-label="input-field-three-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                    setSingleResultPlayerTwo([
-                      ...singleResultPlayerTwo,
-                      singleResultPlayerTwo[1] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                      setSingleResultPlayerTwo([
+                        ...singleResultPlayerTwo,
+                        singleResultPlayerTwo[1] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -191,11 +215,15 @@ export default function Game501Layout() {
                 aria-label="input-field-four-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerOne(resultPlayerOne - e.target.value);
-                    setSingleResultPlayerOne([
-                      ...singleResultPlayerOne,
-                      singleResultPlayerOne[2] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerOne(resultPlayerOne - e.target.value);
+                      setSingleResultPlayerOne([
+                        ...singleResultPlayerOne,
+                        singleResultPlayerOne[2] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -209,11 +237,15 @@ export default function Game501Layout() {
                 aria-label="input-field-four-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                    setSingleResultPlayerTwo([
-                      ...singleResultPlayerTwo,
-                      singleResultPlayerTwo[2] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                      setSingleResultPlayerTwo([
+                        ...singleResultPlayerTwo,
+                        singleResultPlayerTwo[2] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -229,11 +261,15 @@ export default function Game501Layout() {
                 aria-label="input-field-five-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerOne(resultPlayerOne - e.target.value);
-                    setSingleResultPlayerOne([
-                      ...singleResultPlayerOne,
-                      singleResultPlayerOne[3] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerOne(resultPlayerOne - e.target.value);
+                      setSingleResultPlayerOne([
+                        ...singleResultPlayerOne,
+                        singleResultPlayerOne[3] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -247,11 +283,15 @@ export default function Game501Layout() {
                 aria-label="input-field-five-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                    setSingleResultPlayerTwo([
-                      ...singleResultPlayerTwo,
-                      singleResultPlayerTwo[3] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                      setSingleResultPlayerTwo([
+                        ...singleResultPlayerTwo,
+                        singleResultPlayerTwo[3] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -267,11 +307,15 @@ export default function Game501Layout() {
                 aria-label="input-field-six-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerOne(resultPlayerOne - e.target.value);
-                    setSingleResultPlayerOne([
-                      ...singleResultPlayerOne,
-                      singleResultPlayerOne[4] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerOne(resultPlayerOne - e.target.value);
+                      setSingleResultPlayerOne([
+                        ...singleResultPlayerOne,
+                        singleResultPlayerOne[4] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -285,11 +329,15 @@ export default function Game501Layout() {
                 aria-label="input-field-six-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                    setSingleResultPlayerTwo([
-                      ...singleResultPlayerTwo,
-                      singleResultPlayerTwo[4] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                      setSingleResultPlayerTwo([
+                        ...singleResultPlayerTwo,
+                        singleResultPlayerTwo[4] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -305,11 +353,15 @@ export default function Game501Layout() {
                 aria-label="input-field-seven-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerOne(resultPlayerOne - e.target.value);
-                    setSingleResultPlayerOne([
-                      ...singleResultPlayerOne,
-                      singleResultPlayerOne[5] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerOne(resultPlayerOne - e.target.value);
+                      setSingleResultPlayerOne([
+                        ...singleResultPlayerOne,
+                        singleResultPlayerOne[5] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -323,11 +375,15 @@ export default function Game501Layout() {
                 aria-label="input-field-seven-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                    setSingleResultPlayerTwo([
-                      ...singleResultPlayerTwo,
-                      singleResultPlayerTwo[5] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                      setSingleResultPlayerTwo([
+                        ...singleResultPlayerTwo,
+                        singleResultPlayerTwo[5] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -343,11 +399,15 @@ export default function Game501Layout() {
                 aria-label="input-field-eight-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerOne(resultPlayerOne - e.target.value);
-                    setSingleResultPlayerOne([
-                      ...singleResultPlayerOne,
-                      singleResultPlayerOne[6] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerOne(resultPlayerOne - e.target.value);
+                      setSingleResultPlayerOne([
+                        ...singleResultPlayerOne,
+                        singleResultPlayerOne[6] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -361,11 +421,15 @@ export default function Game501Layout() {
                 aria-label="input-field-eight-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                    setSingleResultPlayerTwo([
-                      ...singleResultPlayerTwo,
-                      singleResultPlayerTwo[6] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                      setSingleResultPlayerTwo([
+                        ...singleResultPlayerTwo,
+                        singleResultPlayerTwo[6] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -381,11 +445,15 @@ export default function Game501Layout() {
                 aria-label="input-field-nine-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerOne(resultPlayerOne - e.target.value);
-                    setSingleResultPlayerOne([
-                      ...singleResultPlayerOne,
-                      singleResultPlayerOne[7] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerOne(resultPlayerOne - e.target.value);
+                      setSingleResultPlayerOne([
+                        ...singleResultPlayerOne,
+                        singleResultPlayerOne[7] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -399,11 +467,15 @@ export default function Game501Layout() {
                 aria-label="input-field-nine-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                    setSingleResultPlayerTwo([
-                      ...singleResultPlayerTwo,
-                      singleResultPlayerTwo[7] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                      setSingleResultPlayerTwo([
+                        ...singleResultPlayerTwo,
+                        singleResultPlayerTwo[7] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -419,11 +491,15 @@ export default function Game501Layout() {
                 aria-label="input-field-ten-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerOne(resultPlayerOne - e.target.value);
-                    setSingleResultPlayerOne([
-                      ...singleResultPlayerOne,
-                      singleResultPlayerOne[8] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerOne(resultPlayerOne - e.target.value);
+                      setSingleResultPlayerOne([
+                        ...singleResultPlayerOne,
+                        singleResultPlayerOne[8] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -437,11 +513,15 @@ export default function Game501Layout() {
                 aria-label="input-field-ten-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                    setSingleResultPlayerTwo([
-                      ...singleResultPlayerTwo,
-                      singleResultPlayerTwo[8] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                      setSingleResultPlayerTwo([
+                        ...singleResultPlayerTwo,
+                        singleResultPlayerTwo[8] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -457,11 +537,15 @@ export default function Game501Layout() {
                 aria-label="input-field-eleven-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerOne(resultPlayerOne - e.target.value);
-                    setSingleResultPlayerOne([
-                      ...singleResultPlayerOne,
-                      singleResultPlayerOne[9] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerOne(resultPlayerOne - e.target.value);
+                      setSingleResultPlayerOne([
+                        ...singleResultPlayerOne,
+                        singleResultPlayerOne[9] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -475,11 +559,15 @@ export default function Game501Layout() {
                 aria-label="input-field-eleven-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                    setSingleResultPlayerTwo([
-                      ...singleResultPlayerTwo,
-                      singleResultPlayerTwo[9] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                      setSingleResultPlayerTwo([
+                        ...singleResultPlayerTwo,
+                        singleResultPlayerTwo[9] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -495,11 +583,15 @@ export default function Game501Layout() {
                 aria-label="input-field-twelve-from-player-one"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerOne(resultPlayerOne - e.target.value);
-                    setSingleResultPlayerOne([
-                      ...singleResultPlayerOne,
-                      singleResultPlayerOne[10] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerOne(resultPlayerOne - e.target.value);
+                      setSingleResultPlayerOne([
+                        ...singleResultPlayerOne,
+                        singleResultPlayerOne[10] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
@@ -513,11 +605,15 @@ export default function Game501Layout() {
                 aria-label="input-field-twelve-from-player-two"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                    setSingleResultPlayerTwo([
-                      ...singleResultPlayerTwo,
-                      singleResultPlayerTwo[10] - e.target.value,
-                    ]);
+                    if (e.target.value >= 0 && e.target.value <= 180) {
+                      setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                      setSingleResultPlayerTwo([
+                        ...singleResultPlayerTwo,
+                        singleResultPlayerTwo[10] - e.target.value,
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
+                    }
                   }
                 }}
               />
