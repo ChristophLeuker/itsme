@@ -42,11 +42,15 @@ export default function Game501Layout() {
   const [resultPlayerTwo, setResultPlayerTwo] = useState(501);
   const [singleResultPlayerTwo, setSingleResultPlayerTwo] = useState([]);
   console.log(singleResultPlayerOne);
+  console.log(resultPlayerOne);
   if (resultPlayerOne === 0) {
     alert("Player One Wins");
   }
   if (resultPlayerTwo === 0) {
     alert("Player Two Wins");
+  }
+  if (singleResultPlayerTwo[11] && singleResultPlayerOne[11] > 0) {
+    console.log("too bad for now");
   }
 
   return (
@@ -79,7 +83,7 @@ export default function Game501Layout() {
                 name="fieldOne-one"
                 aria-label="input-field-one-from-player-one"
                 onKeyDown={(e) => {
-                  if (e.key === "Enter") {
+                  if (e.keyCode == 13) {
                     if (e.target.value >= 0 && e.target.value <= 180) {
                       setResultPlayerOne(resultPlayerOne - e.target.value);
                       setSingleResultPlayerOne([
