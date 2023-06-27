@@ -50,9 +50,7 @@ export default function Form({ onSubmit, formName }) {
 
           <ButtonContainer>
             <Link href="/Game501/game">
-              <Button type="submit" onClick={handleSubmit}>
-                Create Game
-              </Button>
+              <Button type="submit">Create Game</Button>
             </Link>
           </ButtonContainer>
         </FormContainer>
