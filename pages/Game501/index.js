@@ -1,6 +1,5 @@
-import Link from "next/link";
 import { Headline } from "./game";
-import CreateGame from "@/components/createGame";
+import CreateGame from "../../components/createGame";
 
 export default function SetUpGame({ addPlayersName }) {
   return (

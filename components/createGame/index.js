@@ -1,4 +1,4 @@
-import Form from "./Form";
+import Form from "../createForm";
 
 export default function CreateGame({ onSubmit }) {
   return (

@@ -1,6 +1,4 @@
-import Game501Layout from "@/components/game501";
-import App from "../_app.js";
-
+import Game501Layout from "../../components/game501";
 import styled from "styled-components";
 
 export const Headline = styled.h1`
