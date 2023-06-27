@@ -1,4 +1,5 @@
 import Game501Layout from "@/components/game501";
+import App from "../_app.js";
 
 import styled from "styled-components";
 
@@ -7,11 +8,14 @@ export const Headline = styled.h1`
   margin-top: 3rem;
 `;
 
-export default function Game501() {
+export default function Game501({ playerOneName, playerTwoName }) {
   return (
     <>
       <Headline>501. D.O.</Headline>
-      <Game501Layout />
+      <Game501Layout
+        playerOneName={playerOneName}
+        playerTwoName={playerTwoName}
+      />
     </>
   );
 }

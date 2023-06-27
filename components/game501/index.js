@@ -42,7 +42,7 @@ const Hint = styled.div`
   justify-content: center;
 `;
 
-export default function Game501Layout() {
+export default function Game501Layout({ playerOneName, playerTwoName }) {
   const [resultPlayerOne, setResultPlayerOne] = useState(501);
   const [singleResultPlayerOne, setSingleResultPlayerOne] = useState([]);
   const [resultPlayerTwo, setResultPlayerTwo] = useState(501);
@@ -65,8 +65,8 @@ export default function Game501Layout() {
         <Table>
           <thead>
             <tr>
-              <TableHeadPlayer colSpan={2}>Player 1</TableHeadPlayer>
-              <TableHeadPlayer colSpan={2}>Player 2</TableHeadPlayer>
+              <TableHeadPlayer colSpan={2}>{playerOneName}</TableHeadPlayer>
+              <TableHeadPlayer colSpan={2}>{playerTwoName}</TableHeadPlayer>
             </tr>
             <tr>
               <TableHead>Scored</TableHead>

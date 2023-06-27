@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Form from "../Form";
+import Form from "./Form";
 
 const Container = styled.div`
   display: flex;
@@ -7,10 +7,10 @@ const Container = styled.div`
   margin-top: 2rem;
 `;
 
-export default function CreateGame() {
+export default function CreateGame({ onSubmit }) {
   return (
     <>
-      <Form />
+      <Form onSubmit={onSubmit} formName={"CreateGameForm"} />
     </>
   );
 }
