@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const FormContainer = styled.form`
   display: grid;
@@ -32,6 +33,8 @@ const Button = styled.button`
 `;
 
 export default function Form({ onSubmit, formName }) {
+  const router = useRouter();
+
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -49,9 +52,9 @@ export default function Form({ onSubmit, formName }) {
           <Input id="namePlayerTwo" name="namePlayerTwo" type="text" />
 
           <ButtonContainer>
-            <Link href="/Game501/game">
-              <Button type="submit">Create Game</Button>
-            </Link>
+            <Button type="submit" onClick={() => router.push("/Game501/game")}>
+              Create Game
+            </Button>
           </ButtonContainer>
         </FormContainer>
       </>
