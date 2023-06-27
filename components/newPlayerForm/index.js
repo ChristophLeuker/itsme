@@ -44,15 +44,21 @@ export default function Form({ onSubmit, formName }) {
     return (
       <>
         <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
-          <Label htmlFor="name">Player 1 name:</Label>
-          <Input id="namePlayerOne" name="namePlayerOne" type="text" />
+          <Label htmlFor="name">Name:</Label>
+          <Input id="nameNewPlayer" name="nameNewPlayer" type="text" />
 
-          <Label htmlFor="image-url">Player 2 name:</Label>
-          <Input id="namePlayerTwo" name="namePlayerTwo" type="text" />
+          <Label htmlFor="image-url">Passwort:</Label>
+          <Input
+            id="passwordNewPlayer"
+            name="passwordNewPlayer"
+            type="password"
+          />
+          <Label htmlFor="image-url">E-Mail</Label>
+          <Input id="emailNewPlayer" name="emailNewPlayer" type="email" />
 
           <ButtonContainer>
-            <Button type="submit" onClick={() => router.push("/Game501/game")}>
-              Create Game
+            <Button type="submit" onClick={() => router.push("/")}>
+              Create New Profile
             </Button>
           </ButtonContainer>
         </FormContainer>
