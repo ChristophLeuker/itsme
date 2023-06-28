@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Headline } from "./Game501/game";
 import Navbar from "../components/landingNavbar";
 

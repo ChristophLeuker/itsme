@@ -66,7 +66,7 @@ export default function Navbar() {
         {isOpen ? "Close Menu" : "Open Menu"}
       </NavbarToggleButton>
       <NavbarContainer style={isOpen ? { left: "0px" } : { left: "-120px" }}>
-        <NavbarLinks isOpen={isOpen}>
+        <NavbarLinks>
           <NavbarLink href={"/Game501"}>Game 501</NavbarLink>
           <NavbarLink href={"/createplayer"}>Create new player</NavbarLink>
         </NavbarLinks>
