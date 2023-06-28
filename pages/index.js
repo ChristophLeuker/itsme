@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { Headline } from "./Game501/game";
+import Navbar from "../components/landingNavbar";
 
 export default function HomePage() {
   return (
-    <div>
-      <Link href={"/Game501"}>Go to Setup</Link>
-      <hr />
-      <Link href={"/createplayer"}>Go to createplayer</Link>
-    </div>
+    <>
+      <Headline>Throw In - Dart App</Headline>
+      <Navbar />
+    </>
   );
 }
