@@ -17,7 +17,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "socket.io": "^4.7.0",
-    "styled-components": "^5.3.9"
+    "styled-components": "^5.3.9",
+    "use-local-storage-state": "^18.3.3"
   },
   "devDependencies": {
     "@svgr/webpack": "^7.0.0",

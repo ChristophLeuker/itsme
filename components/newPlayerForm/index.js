@@ -27,7 +27,7 @@ const ButtonContainer = styled.div`
 
 const Button = styled.button`
   margin-top: 20px;
-  grid-column: span 2;
+  grid-column: span 2 / auto;
   justify-self: center;
 `;
 
