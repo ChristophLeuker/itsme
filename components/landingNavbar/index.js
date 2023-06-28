@@ -26,10 +26,12 @@ const NavbarLink = styled(Link)`
   border: solid black 1px;
   border-radius: 100px;
   padding: 10px;
+  background-color: #ff9900;
 
   &:hover {
     color: #000;
     font-weight: bold;
+    background-color: #ff8800;
   }
 `;
 
@@ -37,16 +39,18 @@ const NavbarToggleButton = styled.button`
   position: fixed;
   top: 160px;
   display: inline-block;
-  background-color: transparent;
+  background-color: orange;
   border: solid black 1px;
   color: #333;
   font-size: 1.2rem;
   cursor: pointer;
   margin-left: auto;
+  border-radius: 50px;
 
   &:hover {
     color: #000;
     font-weight: bold;
+    background-color: #ff8800;
   }
 `;
 
@@ -59,7 +63,7 @@ export default function Navbar() {
   return (
     <>
       <NavbarToggleButton onClick={toggleNavbar}>
-        {isOpen ? "Close Menu" : "Menu"}
+        {isOpen ? "Close Menu" : "Open Menu"}
       </NavbarToggleButton>
       <NavbarContainer style={isOpen ? { left: "0px" } : { left: "-120px" }}>
         <NavbarLinks isOpen={isOpen}>
