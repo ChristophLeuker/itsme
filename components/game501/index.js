@@ -450,7 +450,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
           </tbody>
         </Table>
       </Container>
-      <Hint>use Enter so commit your score</Hint>
+      <Hint>use Enter to commit your score</Hint>
       <NewGameQuestion
         playerOneWins={playerOneWins}
         playerTwoWins={playerTwoWins}
