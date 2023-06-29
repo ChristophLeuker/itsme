@@ -1,10 +1,16 @@
 import GlobalStyle from "../styles";
-import { useState } from "react";
+
 import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {
-  const [playerOneName, setPlayerOneName] = useState("");
-  const [playerTwoName, setPlayerTwoName] = useState("");
+  const [playerOneName, setPlayerOneName] = useLocalStorageState(
+    "playerOneName",
+    { defaultValue: "Player One" }
+  );
+  const [playerTwoName, setPlayerTwoName] = useLocalStorageState(
+    "playerTwoName",
+    { defaultValue: "Player Two" }
+  );
 
   const [playerProfiles, setPlayerProfiles] = useLocalStorageState(
     "playerProfiles",

@@ -11,6 +11,7 @@ const WinnerContainer = styled.div`
   transform: translateX(-50%) translateY(-50%);
   display: flex;
   justify-content: center;
+  border: 3px solid white;
 `;
 
 const WinnerText = styled.p`
@@ -49,19 +50,22 @@ export default function NewGameQuestion({
   playerOneName,
   playerTwoName,
   handleNoGame,
-  handleYesGame,
+  numberDartsP1,
+  numberDartsP2,
 }) {
   if (playerOneWins) {
     return (
       <>
         <WinnerContainer>
-          <WinnerText>{playerOneName} Wins!</WinnerText>
+          <WinnerText>
+            {playerOneName} Wins in {numberDartsP1} Darts!
+          </WinnerText>
           <QuestionText> Want to play again?</QuestionText>
           <ButtonContainer>
             <Button
               type="button"
               alt="play again button"
-              onClick={handleYesGame}
+              onClick={() => window.location.reload()}
             >
               Yes
             </Button>
@@ -80,13 +84,15 @@ export default function NewGameQuestion({
     return (
       <>
         <WinnerContainer>
-          <WinnerText>{playerTwoName} Wins!</WinnerText>
+          <WinnerText>
+            {playerTwoName} Wins in {numberDartsP2} Darts!
+          </WinnerText>
           <QuestionText> Want to play again?</QuestionText>
           <ButtonContainer>
             <Button
               type="button"
               alt="play again button"
-              onClick={handleYesGame}
+              onClick={() => window.location.reload()}
             >
               Yes
             </Button>

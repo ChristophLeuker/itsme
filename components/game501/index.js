@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import NewGameQuestion from "../newGameQuestion";
-import { useRouter } from "next/router";
 
 const Container = styled.div`
   display: flex;
@@ -59,14 +58,14 @@ const WinnerText = styled.p`
   background-color: pink;
 `;
 
-export default function Game501Layout({
-  playerOneName = "Player One",
-  playerTwoName = "Player Two",
-}) {
+export default function Game501Layout({ playerOneName, playerTwoName }) {
   const [singleResultPlayerOne, setSingleResultPlayerOne] = useState([]);
   const [singleResultPlayerTwo, setSingleResultPlayerTwo] = useState([]);
   const [playerOneWins, setPlayerOneWins] = useState(false);
   const [playerTwoWins, setPlayerTwoWins] = useState(false);
+  const [numberDartsP1, setNumberDartsP1] = useState(0);
+  const [numberDartsP2, setNumberDartsP2] = useState(0);
+  console.log(playerOneName);
 
   function handleSubmitPlayerOne(event, index) {
     if (event.key === "Enter") {
@@ -126,19 +125,17 @@ export default function Game501Layout({
     alert("too bad for now, try again!");
   }
 
-  const router = useRouter();
-
   function handleNoGame() {
     setPlayerTwoWins(false);
     setPlayerOneWins(false);
   }
 
-  function handleYesGame() {
-    setPlayerOneWins(false);
-    setPlayerTwoWins(false);
-    setSingleResultPlayerOne([]);
-    setSingleResultPlayerTwo([]);
-  }
+  useEffect(() => {
+    setNumberDartsP1(singleResultPlayerOne.length * 3);
+  }, [singleResultPlayerOne]);
+  useEffect(() => {
+    setNumberDartsP2(singleResultPlayerTwo.length * 3);
+  }, [singleResultPlayerTwo]);
 
   return (
     <>
@@ -461,7 +458,8 @@ export default function Game501Layout({
         playerTwoName={playerTwoName}
         playerOneName={playerOneName}
         handleNoGame={handleNoGame}
-        handleYesGame={handleYesGame}
+        numberDartsP1={numberDartsP1}
+        numberDartsP2={numberDartsP2}
       />
     </>
   );
