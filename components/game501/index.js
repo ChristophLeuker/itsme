@@ -167,9 +167,9 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   name="fieldOne-one"
                   aria-label="input-field-one-from-player-one"
                   onKeyDown={(e) => {
-                    if (e.keyCode == 13) {
+                    if (e.key === "Enter") {
                       const value = parseInt(e.target.value, 10);
-                      if (e.target.value >= 0 && e.target.value <= 180) {
+                      if (value >= 0 && value <= 180) {
                         setSingleResultPlayerOne([
                           501 - value,
                           ...singleResultPlayerOne.slice(0 + 1),
@@ -191,7 +191,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
                       const value = parseInt(e.target.value, 10);
-                      if (e.target.value >= 0 && e.target.value <= 180) {
+                      if (value >= 0 && value <= 180) {
                         setSingleResultPlayerTwo([
                           501 - value,
                           ...singleResultPlayerTwo.slice(0 + 1),
