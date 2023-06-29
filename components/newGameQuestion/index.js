@@ -89,11 +89,7 @@ export default function NewGameQuestion({
           </WinnerText>
           <QuestionText> Want to play again?</QuestionText>
           <ButtonContainer>
-            <Button
-              type="button"
-              alt="play again button"
-              onClick={() => window.location.reload()}
-            >
+            <Button type="button" onClick={() => window.location.reload()}>
               Yes
             </Button>
 

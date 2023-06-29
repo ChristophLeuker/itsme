@@ -65,7 +65,6 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
   const [playerTwoWins, setPlayerTwoWins] = useState(false);
   const [numberDartsP1, setNumberDartsP1] = useState(0);
   const [numberDartsP2, setNumberDartsP2] = useState(0);
-  console.log(playerOneName);
 
   function handleSubmitPlayerOne(event, index) {
     if (event.key === "Enter") {
