@@ -27,7 +27,6 @@ export default function App({ Component, pageProps }) {
   function addNewPlayerProfile(data) {
     setPlayerProfiles([...playerProfiles, data]);
   }
-  console.log(playerProfiles);
 
   return (
     <>
