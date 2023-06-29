@@ -6,25 +6,73 @@ const WinnerContainer = styled.div`
   width: 200px;
   height: 200px;
   border-radius: 50px;
-  top: 450px;
-  left: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
   display: flex;
   justify-content: center;
 `;
 
 const WinnerText = styled.p`
   text-align: center;
-  background-color: pink;
+  margin: 5px;
   position: absolute;
-  top: 30px;
+  top: 20px;
+  color: #ffffff;
+  font-size: 1.5rem;
 `;
 
-export default function NewGameQuestion({ playerOneWins, playerTwoWins }) {
+const QuestionText = styled.p`
+  text-align: center;
+  margin: 5px;
+  position: absolute;
+  top: 80px;
+  color: #ffffff;
+  font-size: 1rem;
+`;
+
+const ButtonContainer = styled.div`
+  position: absolute;
+  top: 120px;
+`;
+
+const Button = styled.button`
+  margin: 10px;
+  height: 60px;
+  border-radius: 100px;
+  width: 60px;
+`;
+
+export default function NewGameQuestion({
+  playerOneWins,
+  playerTwoWins,
+  playerOneName,
+  playerTwoName,
+  handleNoGame,
+  handleYesGame,
+}) {
   if (playerOneWins) {
     return (
       <>
         <WinnerContainer>
-          <WinnerText>Player One Wins!</WinnerText>
+          <WinnerText>{playerOneName} Wins!</WinnerText>
+          <QuestionText> Want to play again?</QuestionText>
+          <ButtonContainer>
+            <Button
+              type="button"
+              alt="play again button"
+              onClick={handleYesGame}
+            >
+              Yes
+            </Button>
+            <Button
+              type="button"
+              alt="dont play again button"
+              onClick={handleNoGame}
+            >
+              No
+            </Button>
+          </ButtonContainer>
         </WinnerContainer>
       </>
     );
@@ -32,7 +80,25 @@ export default function NewGameQuestion({ playerOneWins, playerTwoWins }) {
     return (
       <>
         <WinnerContainer>
-          <WinnerText>Player Two Wins!</WinnerText>
+          <WinnerText>{playerTwoName} Wins!</WinnerText>
+          <QuestionText> Want to play again?</QuestionText>
+          <ButtonContainer>
+            <Button
+              type="button"
+              alt="play again button"
+              onClick={handleYesGame}
+            >
+              Yes
+            </Button>
+
+            <Button
+              type="button"
+              alt="dont play again button"
+              onClick={handleNoGame}
+            >
+              No
+            </Button>
+          </ButtonContainer>
         </WinnerContainer>
       </>
     );

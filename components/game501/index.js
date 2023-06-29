@@ -1,7 +1,7 @@
-import { useState } from "react";
 import styled from "styled-components";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import NewGameQuestion from "../newGameQuestion";
+import { useRouter } from "next/router";
 
 const Container = styled.div`
   display: flex;
@@ -59,7 +59,10 @@ const WinnerText = styled.p`
   background-color: pink;
 `;
 
-export default function Game501Layout({ playerOneName, playerTwoName }) {
+export default function Game501Layout({
+  playerOneName = "Player One",
+  playerTwoName = "Player Two",
+}) {
   const [singleResultPlayerOne, setSingleResultPlayerOne] = useState([]);
   const [singleResultPlayerTwo, setSingleResultPlayerTwo] = useState([]);
   const [playerOneWins, setPlayerOneWins] = useState(false);
@@ -107,9 +110,6 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
     }
   }
 
-  console.log(singleResultPlayerOne);
-  console.log(playerOneWins);
-
   useEffect(() => {
     if (singleResultPlayerOne.some((item) => item === 0)) {
       setPlayerOneWins(true);
@@ -123,7 +123,21 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
   }, [singleResultPlayerTwo]);
 
   if (singleResultPlayerTwo[11] && singleResultPlayerOne[11] > 0) {
-    console.log("too bad for now");
+    alert("too bad for now, try again!");
+  }
+
+  const router = useRouter();
+
+  function handleNoGame() {
+    setPlayerTwoWins(false);
+    setPlayerOneWins(false);
+  }
+
+  function handleYesGame() {
+    setPlayerOneWins(false);
+    setPlayerTwoWins(false);
+    setSingleResultPlayerOne([]);
+    setSingleResultPlayerTwo([]);
   }
 
   return (
@@ -444,6 +458,10 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
       <NewGameQuestion
         playerOneWins={playerOneWins}
         playerTwoWins={playerTwoWins}
+        playerTwoName={playerTwoName}
+        playerOneName={playerOneName}
+        handleNoGame={handleNoGame}
+        handleYesGame={handleYesGame}
       />
     </>
   );
