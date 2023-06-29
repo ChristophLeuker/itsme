@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { useEffect } from "react";
+import NewGameQuestion from "../newGameQuestion";
 
 const Container = styled.div`
   display: flex;
@@ -42,25 +44,40 @@ const Hint = styled.div`
   justify-content: center;
 `;
 
+const WinnerContainer = styled.div`
+  position: absolute;
+  background-color: grey;
+  width: 200px;
+  height: 200px;
+  border-radius: 50px;
+  top: 450px;
+  left: 100px;
+`;
+
+const WinnerText = styled.p`
+  text-align: center;
+  background-color: pink;
+`;
+
 export default function Game501Layout({ playerOneName, playerTwoName }) {
-  const [resultPlayerOne, setResultPlayerOne] = useState(501);
   const [singleResultPlayerOne, setSingleResultPlayerOne] = useState([]);
-  const [resultPlayerTwo, setResultPlayerTwo] = useState(501);
   const [singleResultPlayerTwo, setSingleResultPlayerTwo] = useState([]);
+  const [playerOneWins, setPlayerOneWins] = useState(false);
+  const [playerTwoWins, setPlayerTwoWins] = useState(false);
 
   function handleSubmitPlayerOne(event, index) {
     if (event.key === "Enter") {
-      if (event.target.value > singleResultPlayerOne[index]) {
+      const value = parseInt(event.target.value, 10);
+      if (value > singleResultPlayerOne[index]) {
         alert(
           "The score you got is higher than your left score, pls insert a correct number"
         );
         return;
       }
-      if (event.target.value > 0 && event.target.value <= 180) {
-        setResultPlayerOne(resultPlayerOne - event.target.value);
+      if (value > 0 && value <= 180) {
         setSingleResultPlayerOne([
           ...singleResultPlayerOne.slice(0, index + 1),
-          singleResultPlayerOne[index] - event.target.value,
+          singleResultPlayerOne[index] - value,
           ...singleResultPlayerOne.slice(index + 2),
         ]);
       } else {
@@ -71,17 +88,17 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
 
   function handleSubmitPlayerTwo(event, index) {
     if (event.key === "Enter") {
-      if (event.target.value > singleResultPlayerTwo[index]) {
+      const value = parseInt(event.target.value, 10);
+      if (value > singleResultPlayerTwo[index]) {
         alert(
           "The score you got is higher than your left score, pls insert a correct number"
         );
         return;
       }
-      if (event.target.value > 0 && event.target.value <= 180) {
-        setResultPlayerTwo(resultPlayerTwo - event.target.value);
+      if (value > 0 && value <= 180) {
         setSingleResultPlayerTwo([
           ...singleResultPlayerTwo.slice(0, index + 1),
-          singleResultPlayerTwo[index] - event.target.value,
+          singleResultPlayerTwo[index] - value,
           ...singleResultPlayerTwo.slice(index + 2),
         ]);
       } else {
@@ -90,15 +107,20 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
     }
   }
 
-  console.log(resultPlayerOne);
   console.log(singleResultPlayerOne);
+  console.log(playerOneWins);
 
-  if (singleResultPlayerOne.some((item) => item === 0)) {
-    alert("Player One Wins");
-  }
-  if (singleResultPlayerTwo.some((item) => item === 0)) {
-    alert("Player Two Wins");
-  }
+  useEffect(() => {
+    if (singleResultPlayerOne.some((item) => item === 0)) {
+      setPlayerOneWins(true);
+    }
+  }, [singleResultPlayerOne]);
+
+  useEffect(() => {
+    if (singleResultPlayerTwo.some((item) => item === 0)) {
+      setPlayerTwoWins(true);
+    }
+  }, [singleResultPlayerTwo]);
 
   if (singleResultPlayerTwo[11] && singleResultPlayerOne[11] > 0) {
     console.log("too bad for now");
@@ -136,10 +158,10 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   aria-label="input-field-one-from-player-one"
                   onKeyDown={(e) => {
                     if (e.keyCode == 13) {
+                      const value = parseInt(e.target.value, 10);
                       if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerOne(resultPlayerOne - e.target.value);
                         setSingleResultPlayerOne([
-                          501 - e.target.value,
+                          501 - value,
                           ...singleResultPlayerOne.slice(0 + 1),
                         ]);
                       } else {
@@ -156,14 +178,12 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldtwo-one"
                   aria-label="input-field-one-from-player-two"
-                  min="00"
-                  max="180"
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
+                      const value = parseInt(e.target.value, 10);
                       if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerTwo(resultPlayerTwo - e.target.value);
                         setSingleResultPlayerTwo([
-                          501 - e.target.value,
+                          501 - value,
                           ...singleResultPlayerTwo.slice(0 + 1),
                         ]);
                       } else {
@@ -421,6 +441,10 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
         </Table>
       </Container>
       <Hint>use Enter so commit your score</Hint>
+      <NewGameQuestion
+        playerOneWins={playerOneWins}
+        playerTwoWins={playerTwoWins}
+      />
     </>
   );
 }
