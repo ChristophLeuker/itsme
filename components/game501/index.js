@@ -1,5 +1,6 @@
-import { useState } from "react";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
+import NewGameQuestion from "../newGameQuestion";
 
 const Container = styled.div`
   display: flex;
@@ -42,22 +43,98 @@ const Hint = styled.div`
   justify-content: center;
 `;
 
+const WinnerContainer = styled.div`
+  position: absolute;
+  background-color: grey;
+  width: 200px;
+  height: 200px;
+  border-radius: 50px;
+  top: 450px;
+  left: 100px;
+`;
+
+const WinnerText = styled.p`
+  text-align: center;
+  background-color: pink;
+`;
+
 export default function Game501Layout({ playerOneName, playerTwoName }) {
-  const [resultPlayerOne, setResultPlayerOne] = useState(501);
   const [singleResultPlayerOne, setSingleResultPlayerOne] = useState([]);
-  const [resultPlayerTwo, setResultPlayerTwo] = useState(501);
   const [singleResultPlayerTwo, setSingleResultPlayerTwo] = useState([]);
-  console.log(singleResultPlayerOne);
-  console.log(resultPlayerOne);
-  if (resultPlayerOne === 0) {
-    alert("Player One Wins");
+  const [playerOneWins, setPlayerOneWins] = useState(false);
+  const [playerTwoWins, setPlayerTwoWins] = useState(false);
+  const [numberDartsP1, setNumberDartsP1] = useState(0);
+  const [numberDartsP2, setNumberDartsP2] = useState(0);
+
+  function handleSubmitPlayerOne(event, index) {
+    if (event.key === "Enter") {
+      const value = parseInt(event.target.value, 10);
+      if (value > singleResultPlayerOne[index]) {
+        alert(
+          "The score you got is higher than your left score, pls insert a correct number"
+        );
+        return;
+      }
+      if (value > 0 && value <= 180) {
+        setSingleResultPlayerOne([
+          ...singleResultPlayerOne.slice(0, index + 1),
+          singleResultPlayerOne[index] - value,
+          ...singleResultPlayerOne.slice(index + 2),
+        ]);
+      } else {
+        alert("insert a number between 0 and 180");
+      }
+    }
   }
-  if (resultPlayerTwo === 0) {
-    alert("Player Two Wins");
+
+  function handleSubmitPlayerTwo(event, index) {
+    if (event.key === "Enter") {
+      const value = parseInt(event.target.value, 10);
+      if (value > singleResultPlayerTwo[index]) {
+        alert(
+          "The score you got is higher than your left score, pls insert a correct number"
+        );
+        return;
+      }
+      if (value > 0 && value <= 180) {
+        setSingleResultPlayerTwo([
+          ...singleResultPlayerTwo.slice(0, index + 1),
+          singleResultPlayerTwo[index] - value,
+          ...singleResultPlayerTwo.slice(index + 2),
+        ]);
+      } else {
+        alert("insert a number between 0 and 180");
+      }
+    }
   }
+
+  useEffect(() => {
+    if (singleResultPlayerOne.some((item) => item === 0)) {
+      setPlayerOneWins(true);
+    }
+  }, [singleResultPlayerOne]);
+
+  useEffect(() => {
+    if (singleResultPlayerTwo.some((item) => item === 0)) {
+      setPlayerTwoWins(true);
+    }
+  }, [singleResultPlayerTwo]);
+
   if (singleResultPlayerTwo[11] && singleResultPlayerOne[11] > 0) {
-    console.log("too bad for now");
+    alert("too bad for now, try again!");
   }
+
+  function handleNoGame() {
+    setPlayerTwoWins(false);
+    setPlayerOneWins(false);
+  }
+
+  useEffect(() => {
+    setNumberDartsP1(singleResultPlayerOne.length * 3);
+  }, [singleResultPlayerOne]);
+  useEffect(() => {
+    setNumberDartsP2(singleResultPlayerTwo.length * 3);
+  }, [singleResultPlayerTwo]);
 
   return (
     <>
@@ -90,11 +167,11 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   name="fieldOne-one"
                   aria-label="input-field-one-from-player-one"
                   onKeyDown={(e) => {
-                    if (e.keyCode == 13) {
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerOne(resultPlayerOne - e.target.value);
+                    if (e.key === "Enter") {
+                      const value = parseInt(e.target.value, 10);
+                      if (value >= 0 && value <= 180) {
                         setSingleResultPlayerOne([
-                          501 - e.target.value,
+                          501 - value,
                           ...singleResultPlayerOne.slice(0 + 1),
                         ]);
                       } else {
@@ -111,19 +188,17 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldtwo-one"
                   aria-label="input-field-one-from-player-two"
-                  min="00"
-                  max="180"
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerTwo(resultPlayerTwo - e.target.value);
+                      const value = parseInt(e.target.value, 10);
+                      if (value >= 0 && value <= 180) {
                         setSingleResultPlayerTwo([
-                          501 - e.target.value,
+                          501 - value,
                           ...singleResultPlayerTwo.slice(0 + 1),
                         ]);
-                      } /* else {
-                      alert("insert a number between 0 and 180");
-                    } */
+                      } else {
+                        alert("insert a number between 0 and 180");
+                      }
                     }
                   }}
                 />
@@ -137,20 +212,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldOne-two"
                   aria-label="input-field-two-from-player-one"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > 0 && e.target.value <= 180) {
-                        setResultPlayerOne(resultPlayerOne - e.target.value);
-                        setSingleResultPlayerOne([
-                          ...singleResultPlayerOne.slice(0, 0 + 1),
-                          singleResultPlayerOne[0] - e.target.value,
-                          ...singleResultPlayerOne.slice(0 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerOne(event, 0)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerOne[1]}</TableCell>
@@ -160,20 +222,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldtwo-two"
                   aria-label="input-field-two-from-player-two"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                        setSingleResultPlayerTwo([
-                          ...singleResultPlayerTwo.slice(0, 0 + 1),
-                          singleResultPlayerTwo[0] - e.target.value,
-                          ...singleResultPlayerTwo.slice(0 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 0)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerTwo[1]}</TableCell>
@@ -185,26 +234,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldOne-three"
                   aria-label="input-field-three-from-player-one"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerOne[1]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerOne(resultPlayerOne - e.target.value);
-                        setSingleResultPlayerOne([
-                          ...singleResultPlayerOne.slice(0, 1 + 1),
-                          singleResultPlayerOne[1] - e.target.value,
-                          ...singleResultPlayerOne.slice(1 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerOne(event, 1)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerOne[2]}</TableCell>
@@ -214,26 +244,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldtwo-three"
                   aria-label="input-field-three-from-player-two"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerTwo[1]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                        setSingleResultPlayerTwo([
-                          ...singleResultPlayerTwo.slice(0, 1 + 1),
-                          singleResultPlayerTwo[1] - e.target.value,
-                          ...singleResultPlayerTwo.slice(1 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 1)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerTwo[2]}</TableCell>
@@ -245,26 +256,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldOne-four"
                   aria-label="input-field-four-from-player-one"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerOne[2]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerOne(resultPlayerOne - e.target.value);
-                        setSingleResultPlayerOne([
-                          ...singleResultPlayerOne.slice(0, 2 + 1),
-                          singleResultPlayerOne[2] - e.target.value,
-                          ...singleResultPlayerOne.slice(2 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerOne(event, 2)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerOne[3]}</TableCell>
@@ -274,26 +266,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldtwo-four"
                   aria-label="input-field-four-from-player-two"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerTwo[2]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                        setSingleResultPlayerTwo([
-                          ...singleResultPlayerTwo.slice(0, 2 + 1),
-                          singleResultPlayerTwo[2] - e.target.value,
-                          ...singleResultPlayerTwo.slice(2 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 2)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerTwo[3]}</TableCell>
@@ -305,26 +278,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldOne-five"
                   aria-label="input-field-five-from-player-one"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerOne[3]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerOne(resultPlayerOne - e.target.value);
-                        setSingleResultPlayerOne([
-                          ...singleResultPlayerOne.slice(0, 3 + 1),
-                          singleResultPlayerOne[3] - e.target.value,
-                          ...singleResultPlayerOne.slice(3 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerOne(event, 3)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerOne[4]}</TableCell>
@@ -334,26 +288,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldtwo-five"
                   aria-label="input-field-five-from-player-two"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerTwo[3]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                        setSingleResultPlayerTwo([
-                          ...singleResultPlayerTwo.slice(0, 3 + 1),
-                          singleResultPlayerTwo[3] - e.target.value,
-                          ...singleResultPlayerTwo.slice(3 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 3)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerTwo[4]}</TableCell>
@@ -365,26 +300,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldOne-six"
                   aria-label="input-field-six-from-player-one"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerOne[4]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerOne(resultPlayerOne - e.target.value);
-                        setSingleResultPlayerOne([
-                          ...singleResultPlayerOne.slice(0, 4 + 1),
-                          singleResultPlayerOne[4] - e.target.value,
-                          ...singleResultPlayerOne.slice(4 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerOne(event, 4)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerOne[5]}</TableCell>
@@ -394,26 +310,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldtwo-one"
                   aria-label="input-field-six-from-player-two"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerTwo[4]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                        setSingleResultPlayerTwo([
-                          ...singleResultPlayerTwo.slice(0, 4 + 1),
-                          singleResultPlayerTwo[4] - e.target.value,
-                          ...singleResultPlayerTwo.slice(4 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 4)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerTwo[5]}</TableCell>
@@ -425,26 +322,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldOne-seven"
                   aria-label="input-field-seven-from-player-one"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerOne[5]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerOne(resultPlayerOne - e.target.value);
-                        setSingleResultPlayerOne([
-                          ...singleResultPlayerOne.slice(0, 5 + 1),
-                          singleResultPlayerOne[5] - e.target.value,
-                          ...singleResultPlayerOne.slice(5 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerOne(event, 5)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerOne[6]}</TableCell>
@@ -454,26 +332,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldtwo-seven"
                   aria-label="input-field-seven-from-player-two"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerTwo[5]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                        setSingleResultPlayerTwo([
-                          ...singleResultPlayerTwo.slice(0, 5 + 1),
-                          singleResultPlayerTwo[5] - e.target.value,
-                          ...singleResultPlayerTwo.slice(5 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 5)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerTwo[6]}</TableCell>
@@ -485,26 +344,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldOne-eight"
                   aria-label="input-field-eight-from-player-one"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value >= singleResultPlayerOne[6]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value > 0 && e.target.value <= 180) {
-                        setResultPlayerOne(resultPlayerOne - e.target.value);
-                        setSingleResultPlayerOne([
-                          ...singleResultPlayerOne.slice(0, 6 + 1),
-                          singleResultPlayerOne[6] - e.target.value,
-                          ...singleResultPlayerOne.slice(6 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerOne(event, 6)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerOne[7]}</TableCell>
@@ -514,26 +354,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldtwo-eight"
                   aria-label="input-field-eight-from-player-two"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerTwo[6]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                        setSingleResultPlayerTwo([
-                          ...singleResultPlayerTwo.slice(0, 6 + 1),
-                          singleResultPlayerTwo[6] - e.target.value,
-                          ...singleResultPlayerTwo.slice(6 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 6)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerTwo[7]}</TableCell>
@@ -545,26 +366,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldOne-nine"
                   aria-label="input-field-nine-from-player-one"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerOne[7]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerOne(resultPlayerOne - e.target.value);
-                        setSingleResultPlayerOne([
-                          ...singleResultPlayerOne.slice(0, 7 + 1),
-                          singleResultPlayerOne[7] - e.target.value,
-                          ...singleResultPlayerOne.slice(7 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerOne(event, 7)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerOne[8]}</TableCell>
@@ -574,26 +376,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldtwo-nine"
                   aria-label="input-field-nine-from-player-two"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerTwo[7]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                        setSingleResultPlayerTwo([
-                          ...singleResultPlayerTwo.slice(0, 7 + 1),
-                          singleResultPlayerTwo[7] - e.target.value,
-                          ...singleResultPlayerTwo.slice(7 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 7)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerTwo[8]}</TableCell>
@@ -605,26 +388,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldOne-ten"
                   aria-label="input-field-ten-from-player-one"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerOne[8]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerOne(resultPlayerOne - e.target.value);
-                        setSingleResultPlayerOne([
-                          ...singleResultPlayerOne.slice(0, 8 + 1),
-                          singleResultPlayerOne[8] - e.target.value,
-                          ...singleResultPlayerOne.slice(8 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerOne(event, 8)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerOne[9]}</TableCell>
@@ -634,26 +398,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldtwo-ten"
                   aria-label="input-field-ten-from-player-two"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerTwo[8]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                        setSingleResultPlayerTwo([
-                          ...singleResultPlayerTwo.slice(0, 8 + 1),
-                          singleResultPlayerTwo[8] - e.target.value,
-                          ...singleResultPlayerTwo.slice(8 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 8)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerTwo[9]}</TableCell>
@@ -665,26 +410,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldOne-eleven"
                   aria-label="input-field-eleven-from-player-one"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerOne[9]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerOne(resultPlayerOne - e.target.value);
-                        setSingleResultPlayerOne([
-                          ...singleResultPlayerOne.slice(0, 9 + 1),
-                          singleResultPlayerOne[9] - e.target.value,
-                          ...singleResultPlayerOne.slice(9 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerOne(event, 9)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerOne[10]}</TableCell>
@@ -694,26 +420,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldtwo-eleven"
                   aria-label="input-field-eleven-from-player-two"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerTwo[9]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                        setSingleResultPlayerTwo([
-                          ...singleResultPlayerTwo.slice(0, 9 + 1),
-                          singleResultPlayerTwo[9] - e.target.value,
-                          ...singleResultPlayerTwo.slice(9 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 9)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerTwo[10]}</TableCell>
@@ -725,26 +432,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldOne-twelve"
                   aria-label="input-field-twelve-from-player-one"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerOne[10]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerOne(resultPlayerOne - e.target.value);
-                        setSingleResultPlayerOne([
-                          ...singleResultPlayerOne.slice(0, 10 + 1),
-                          singleResultPlayerOne[10] - e.target.value,
-                          ...singleResultPlayerOne.slice(10 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerOne(event, 10)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerOne[11]}</TableCell>
@@ -754,26 +442,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   type="number"
                   name="fieldtwo-twelve"
                   aria-label="input-field-twelve-from-player-two"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      if (e.target.value > singleResultPlayerTwo[10]) {
-                        alert(
-                          "The score you got is higher than your left score, pls insert a correct number"
-                        );
-                        return;
-                      }
-                      if (e.target.value >= 0 && e.target.value <= 180) {
-                        setResultPlayerTwo(resultPlayerTwo - e.target.value);
-                        setSingleResultPlayerTwo([
-                          ...singleResultPlayerTwo.slice(0, 10 + 1),
-                          singleResultPlayerTwo[10] - e.target.value,
-                          ...singleResultPlayerTwo.slice(10 + 2),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
-                    }
-                  }}
+                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 10)}
                 />
               </TableCell>
               <TableCell>{singleResultPlayerTwo[11]}</TableCell>
@@ -781,7 +450,16 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
           </tbody>
         </Table>
       </Container>
-      <Hint>use Enter so commit your score</Hint>
+      <Hint>use Enter to commit your score</Hint>
+      <NewGameQuestion
+        playerOneWins={playerOneWins}
+        playerTwoWins={playerTwoWins}
+        playerTwoName={playerTwoName}
+        playerOneName={playerOneName}
+        handleNoGame={handleNoGame}
+        numberDartsP1={numberDartsP1}
+        numberDartsP2={numberDartsP2}
+      />
     </>
   );
 }
