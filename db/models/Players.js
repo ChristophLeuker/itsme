@@ -10,6 +10,6 @@ const playerSchema = new Schema({
   hometown: { type: String },
 });
 
-const Player = mongoose.models.Player || model("Player", productSchema);
+const Player = mongoose.models.Player || model("Player", playerSchema);
 
 export default Player;

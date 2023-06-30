@@ -1,4 +1,5 @@
 import GlobalStyle from "../styles";
+import { SWRConfig } from "swr";
 
 import useLocalStorageState from "use-local-storage-state";
 
@@ -30,14 +31,26 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <GlobalStyle />
-      <Component
-        {...pageProps}
-        playerOneName={playerOneName}
-        playerTwoName={playerTwoName}
-        addPlayersName={addPlayersName}
-        addNewPlayerProfile={addNewPlayerProfile}
-      />
+      <SWRConfig
+        value={{
+          fetcher: async (...args) => {
+            const response = await fetch(...args);
+            if (!response.ok) {
+              throw new Error(`Request with ${JSON.stringify(args)} failed.`);
+            }
+            return await response.json();
+          },
+        }}
+      >
+        <GlobalStyle />
+        <Component
+          {...pageProps}
+          playerOneName={playerOneName}
+          playerTwoName={playerTwoName}
+          addPlayersName={addPlayersName}
+          addNewPlayerProfile={addNewPlayerProfile}
+        />
+      </SWRConfig>
     </>
   );
 }

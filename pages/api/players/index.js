@@ -9,6 +9,6 @@ export default async function handler(request, response) {
     if (!player) {
       return response.status(404).json({ status: "Not Found" });
     }
-    response.status(200).json(place);
+    response.status(200).json(player);
   }
 }
