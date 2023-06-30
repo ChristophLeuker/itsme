@@ -69,6 +69,7 @@ export default function Navbar() {
         <NavbarLinks>
           <NavbarLink href={"/Game501"}>Game 501</NavbarLink>
           <NavbarLink href={"/createplayer"}>Create new player</NavbarLink>
+          <NavbarLink href={"/playerlist"}>All player profiles</NavbarLink>
         </NavbarLinks>
       </NavbarContainer>
     </>

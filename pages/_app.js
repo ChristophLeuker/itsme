@@ -25,10 +25,6 @@ export default function App({ Component, pageProps }) {
     setPlayerTwoName(data.namePlayerTwo);
   }
 
-  function addNewPlayerProfile(data) {
-    setPlayerProfiles([...playerProfiles, data]);
-  }
-
   return (
     <>
       <SWRConfig
@@ -48,7 +44,6 @@ export default function App({ Component, pageProps }) {
           playerOneName={playerOneName}
           playerTwoName={playerTwoName}
           addPlayersName={addPlayersName}
-          addNewPlayerProfile={addNewPlayerProfile}
         />
       </SWRConfig>
     </>

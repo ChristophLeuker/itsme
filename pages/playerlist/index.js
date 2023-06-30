@@ -8,7 +8,13 @@ export default function PlayerList() {
       <h1>Hello Players:</h1>
       <ul>
         {data.map((player) => {
-          return <li key={player._id}>{player.name}</li>;
+          return (
+            <>
+              <li key={player._id}>
+                Name: {player.name} E-Mail:{player.email}
+              </li>
+            </>
+          );
         })}
       </ul>
     </>

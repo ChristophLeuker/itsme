@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useRouter } from "next/router";
 
 const FormContainer = styled.form`
   display: grid;
@@ -32,8 +31,6 @@ const Button = styled.button`
 `;
 
 export default function Form({ onSubmit, formName }) {
-  const router = useRouter();
-
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -45,21 +42,15 @@ export default function Form({ onSubmit, formName }) {
       <>
         <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
           <Label htmlFor="name">Name:</Label>
-          <Input id="nameNewPlayer" name="nameNewPlayer" type="text" />
+          <Input id="nameNewPlayer" name="name" type="text" />
 
-          <Label htmlFor="image-url">Passwort:</Label>
-          <Input
-            id="passwordNewPlayer"
-            name="passwordNewPlayer"
-            type="password"
-          />
-          <Label htmlFor="image-url">E-Mail</Label>
-          <Input id="emailNewPlayer" name="emailNewPlayer" type="email" />
+          <Label htmlFor="password">Passwort:</Label>
+          <Input id="passwordNewPlayer" name="password" type="password" />
+          <Label htmlFor="email">E-Mail</Label>
+          <Input id="emailNewPlayer" name="email" type="email" />
 
           <ButtonContainer>
-            <Button type="submit" onClick={() => router.push("/")}>
-              Create New Profile
-            </Button>
+            <Button type="submit">Create New Profile</Button>
           </ButtonContainer>
         </FormContainer>
       </>
