@@ -67,8 +67,9 @@ export default function Navbar() {
       </NavbarToggleButton>
       <NavbarContainer style={isOpen ? { left: "-2px" } : { left: "-120px" }}>
         <NavbarLinks>
-          <NavbarLink href={"/Game501"}>Game 501</NavbarLink>
+          <NavbarLink href={"/Game501"}>Game 501 D.O.</NavbarLink>
           <NavbarLink href={"/createplayer"}>Create new player</NavbarLink>
+          <NavbarLink href={"/playerlist"}>All player profiles</NavbarLink>
         </NavbarLinks>
       </NavbarContainer>
     </>

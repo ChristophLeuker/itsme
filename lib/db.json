@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Hans",
+    "password": "550055",
+    "email": "hehe@lol.de",
+    "nickname": "amazing hans",
+    "hometown": "Hamburg"
+  },
+  {
+    "name": "Peter",
+    "password": "hieriswaslos",
+    "email": "geht@lol.de",
+    "nickname": "The Man",
+    "hometown": "Salzburg"
+  }
+]
