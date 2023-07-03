@@ -12,6 +12,7 @@ const Container = styled.div`
 
 const Table = styled.table`
   border-collapse: collapse;
+  background-color: var(--button-color);
 `;
 
 const TableHeadPlayer = styled.th`

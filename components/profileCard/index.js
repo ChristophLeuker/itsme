@@ -9,6 +9,7 @@ const Listitem = styled.li`
   width: 90%;
   height: 4rem;
   margin-top: 1rem;
+
   padding: 0.7rem;
 `;
 const StyledText = styled.p`
