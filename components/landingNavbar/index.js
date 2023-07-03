@@ -20,13 +20,14 @@ const NavbarLinks = styled.div`
   flex-direction: column;
 `;
 const NavbarLink = styled(Link)`
-  color: #333;
+  color: var(--text-button-color);
   text-decoration: none;
   margin-bottom: 0.5rem;
   border: solid black 1px;
-  border-radius: 100px;
+  border-radius: 20px;
   padding: 10px;
-  background-color: #ff9900;
+  background: var(--button-color);
+  background: linear-gradient(var(--button-color), var(--button-color-second));
 
   &:hover {
     color: #000;
@@ -39,19 +40,14 @@ const NavbarToggleButton = styled.button`
   position: fixed;
   top: 160px;
   display: inline-block;
-  background-color: orange;
+  background: var(--button-color);
+  background: linear-gradient(var(--button-color), var(--button-color-second));
   border: solid black 1px;
-  color: #333;
+  color: var(--text-button-color);
   font-size: 1.2rem;
   cursor: pointer;
   margin-left: auto;
-  border-radius: 50px;
-
-  &:hover {
-    color: #000;
-    font-weight: bold;
-    background-color: #ff8800;
-  }
+  border-radius: 30px;
 `;
 
 export default function Navbar() {

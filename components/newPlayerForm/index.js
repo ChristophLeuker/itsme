@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { StyledCreatebutton } from "../createForm";
 
 const FormContainer = styled.form`
   display: grid;
@@ -24,12 +25,6 @@ const ButtonContainer = styled.div`
   justify-content: center;
 `;
 
-const Button = styled.button`
-  margin-top: 20px;
-  grid-column: span 2 / auto;
-  justify-self: center;
-`;
-
 export default function Form({ onSubmit, formName }) {
   function handleSubmit(event) {
     event.preventDefault();
@@ -50,7 +45,9 @@ export default function Form({ onSubmit, formName }) {
           <Input id="emailNewPlayer" name="email" type="email" />
 
           <ButtonContainer>
-            <Button type="submit">Create New Profile</Button>
+            <StyledCreatebutton type="submit">
+              Create New Profile
+            </StyledCreatebutton>
           </ButtonContainer>
         </FormContainer>
       </>

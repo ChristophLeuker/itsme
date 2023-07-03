@@ -31,6 +31,24 @@ const Button = styled.button`
   justify-self: center;
 `;
 
+export const StyledCreatebutton = styled.button`
+  background: var(--button-color);
+  background: linear-gradient(var(--button-color), var(--button-color-second));
+  border-radius: 11px;
+  width: 150px;
+  height: 30px;
+  color: var(--text-button-color);
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+
+  bottom: 10px;
+  right: 10px;
+  margin-top: 20px;
+  grid-column: 1 / span 2;
+  justify-self: center;
+`;
+
 export default function Form({ onSubmit, formName }) {
   const router = useRouter();
 
@@ -51,9 +69,12 @@ export default function Form({ onSubmit, formName }) {
           <Input id="namePlayerTwo" name="namePlayerTwo" type="text" />
 
           <ButtonContainer>
-            <Button type="submit" onClick={() => router.push("/Game501/game")}>
+            <StyledCreatebutton
+              type="submit"
+              onClick={() => router.push("/Game501/game")}
+            >
               Create Game
-            </Button>
+            </StyledCreatebutton>
           </ButtonContainer>
         </FormContainer>
       </>

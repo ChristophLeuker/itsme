@@ -5,11 +5,14 @@ import NewGameQuestion from "../newGameQuestion";
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  position: relative;
+  top: -50px;
 `;
 
 const Table = styled.table`
   border-collapse: collapse;
+  background-color: var(--button-color);
 `;
 
 const TableHeadPlayer = styled.th`
@@ -41,21 +44,6 @@ const Hint = styled.div`
   display: flex;
   font-size: 10px;
   justify-content: center;
-`;
-
-const WinnerContainer = styled.div`
-  position: absolute;
-  background-color: grey;
-  width: 200px;
-  height: 200px;
-  border-radius: 50px;
-  top: 450px;
-  left: 100px;
-`;
-
-const WinnerText = styled.p`
-  text-align: center;
-  background-color: pink;
 `;
 
 export default function Game501Layout({ playerOneName, playerTwoName }) {
