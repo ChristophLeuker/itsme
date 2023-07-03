@@ -4,6 +4,7 @@ const Listitem = styled.li`
   display: flex;
   background-color: var(--button-color);
   border: 1px solid black;
+  border-radius: 20px;
   flex-direction: column;
   width: 90%;
   height: 4rem;
