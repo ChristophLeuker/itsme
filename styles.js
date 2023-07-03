@@ -7,9 +7,17 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :root {
+  --background-color: #F0FFF0;
+  --button-color: #f2d052;
+  --button-color-second: #3a3405;
+  --text-button-color: #ffffff;;
+}
   body {
     margin: 0;
     font-family: system-ui;
-    background-color: #F0FFF0
+    background-color: var(--background-color);
+    font-size: 1rem;
+ 
   }
 `;

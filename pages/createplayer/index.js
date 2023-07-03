@@ -1,6 +1,7 @@
-import { Headline } from "../Game501/game";
+import { Headline, StyledBackbutton } from "../Game501/game";
 import CreateNewPlayer from "../../components/newPlayer";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function CreateNewPlayerSite() {
   const router = useRouter();
@@ -21,6 +22,9 @@ export default function CreateNewPlayerSite() {
     <>
       <Headline>Create new player profile</Headline>
       <CreateNewPlayer onSubmit={addNewPlayerProfile} />
+      <Link href={"/"}>
+        <StyledBackbutton> Back to Main </StyledBackbutton>
+      </Link>
     </>
   );
 }
