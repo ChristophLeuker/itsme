@@ -3,12 +3,20 @@ import styled from "styled-components";
 const Container = styled.div`
   width: 80%;
   height: 100px;
-  background-color: var(--button-color);
+  background-image: linear-gradient(
+    to bottom,
+    transparent 50%,
+    var(--button-color) 50%
+  );
+  background-size: 100% 4px;
+  background-repeat: repeat-y;
   display: flex;
   position: relative;
   flex-direction: column;
   border-radius: 20px;
   border: black solid 2px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const ButtonContainer = styled.div`
@@ -36,7 +44,8 @@ const StyledButton = styled.button`
 const StyledQuestion = styled.p`
   text-align: center;
   color: red;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  margin-top: 10px;
 `;
 
 export default function DeleteQuestion({ handleDelete }) {

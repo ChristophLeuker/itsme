@@ -14,6 +14,8 @@ const Listitem = styled.li`
   margin-top: 1rem;
   padding: 0.7rem;
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
 `;
 const StyledText = styled.p`
   margin: 1px;
