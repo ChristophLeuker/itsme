@@ -13,7 +13,8 @@ const Container = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
-  border-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   border: black solid 2px;
   margin-left: auto;
   margin-right: auto;
@@ -21,7 +22,7 @@ const Container = styled.div`
 
 const ButtonContainer = styled.div`
   position: absolute;
-  top: 40px;
+  top: 45px;
   align-self: center;
 `;
 
@@ -45,7 +46,8 @@ const StyledQuestion = styled.p`
   text-align: center;
   color: red;
   font-size: 1.4rem;
-  margin-top: 10px;
+  margin-top: -10px;
+  padding: 10px;
 `;
 
 export default function DeleteQuestion({ handleDelete }) {
@@ -53,7 +55,7 @@ export default function DeleteQuestion({ handleDelete }) {
   return (
     <>
       <Container>
-        <StyledQuestion>Do you want to delete?</StyledQuestion>
+        <StyledQuestion>Do you want to delete this profile?</StyledQuestion>
         <ButtonContainer>
           <StyledButton type="button" onClick={handleDelete}>
             Yes

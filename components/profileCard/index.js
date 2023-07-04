@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import DeleteQuestion from "../deleteQuestion";
 import { useState } from "react";
+import EditForm from "../editForm";
 
 const Listitem = styled.li`
   display: flex;
@@ -29,8 +30,15 @@ const ImageContainer = styled.div`
   gap: 5px;
 `;
 
-export default function ProfileCard({ name, email, onDelete }) {
+export default function ProfileCard({
+  name,
+  email,
+  onDelete,
+  hometown,
+  nickname,
+}) {
   const [deleteOption, setDeleteOption] = useState(false);
+  const [editOption, setEditOption] = useState(false);
   return (
     <>
       <Listitem>
@@ -49,10 +57,21 @@ export default function ProfileCard({ name, email, onDelete }) {
             alt="edit svg"
             width={20}
             height={20}
+            onClick={setEditOption}
           />
         </ImageContainer>
       </Listitem>
       {deleteOption ? <DeleteQuestion handleDelete={onDelete} /> : null}
+      {editOption ? (
+        <EditForm
+          handleDelete={onDelete}
+          formName={"editPlayerProfiles"}
+          name={name}
+          email={email}
+          hometown={hometown}
+          nickname={nickname}
+        />
+      ) : null}
     </>
   );
 }

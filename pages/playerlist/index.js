@@ -43,6 +43,8 @@ export default function PlayerList() {
               key={player._id}
               name={player.name}
               email={player.email}
+              hometown={player.hometown}
+              nickname={player.nickname}
               onDelete={() => handleDelete(player._id)}
             />
           );
