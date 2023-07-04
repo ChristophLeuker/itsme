@@ -3,6 +3,7 @@ import Player from "../../../db/models/Players.js";
 
 export default async function handler(request, response) {
   await dbConnect();
+
   if (request.method === "GET") {
     const player = await Player.find();
 

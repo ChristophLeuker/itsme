@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
+import DeleteQuestion from "../deleteQuestion";
+import { useState } from "react";
 
 const Listitem = styled.li`
   display: flex;
@@ -25,7 +27,8 @@ const ImageContainer = styled.div`
   gap: 5px;
 `;
 
-export default function ProfileCard({ name, email }) {
+export default function ProfileCard({ name, email, onDelete }) {
+  const [deleteOption, setDeleteOption] = useState(false);
   return (
     <>
       <Listitem>
@@ -37,6 +40,7 @@ export default function ProfileCard({ name, email }) {
             alt="delete svg"
             width={20}
             height={20}
+            onClick={setDeleteOption}
           />
           <Image
             src="/edit-button-svg.svg"
@@ -46,6 +50,7 @@ export default function ProfileCard({ name, email }) {
           />
         </ImageContainer>
       </Listitem>
+      {deleteOption ? <DeleteQuestion handleDelete={onDelete} /> : null}
     </>
   );
 }
