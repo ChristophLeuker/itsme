@@ -13,7 +13,11 @@ const StyledUl = styled.ul`
 `;
 
 export default function PlayerList() {
-  const { data = [] } = useSWR("/api/players");
+  const { data = [], isLoading } = useSWR("/api/players");
+
+  if (isLoading) {
+    return <h2>...isLoading</h2>;
+  }
 
   return (
     <>
