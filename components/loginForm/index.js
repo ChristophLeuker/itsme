@@ -1,5 +1,5 @@
+import Link from "next/link";
 import styled from "styled-components";
-import { useRouter } from "next/router";
 
 const FormContainer = styled.form`
   display: grid;
@@ -14,6 +14,7 @@ const Input = styled.input`
   border: 3px solid black;
   border-radius: 0.5rem;
   width: 150px;
+  align-self: center;
 `;
 
 const Label = styled.label`
@@ -27,7 +28,7 @@ const ButtonContainer = styled.div`
   flex-direction: column;
 `;
 
-export const StyledCreatebutton = styled.button`
+const StyledButton = styled.button`
   background: var(--button-color);
   background: linear-gradient(var(--button-color), var(--button-color-second));
   border-radius: 11px;
@@ -45,35 +46,28 @@ export const StyledCreatebutton = styled.button`
   justify-self: center;
 `;
 
-export default function Form({ onSubmit, formName }) {
-  const router = useRouter();
-
+export default function LogInForm({ formName, onSubmit }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     onSubmit(data);
   }
-  {
-    return (
-      <>
-        <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
-          <Label htmlFor="name">Player 1 name:</Label>
-          <Input id="namePlayerOne" name="namePlayerOne" type="text" />
+  return (
+    <>
+      <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
+        <Label htmlFor="name">Name:</Label>
+        <Input name="name" type="text" />
+        <Label htmlFor="password">Password:</Label>
+        <Input name="password" type="password" />
 
-          <Label htmlFor="image-url">Player 2 name:</Label>
-          <Input id="namePlayerTwo" name="namePlayerTwo" type="text" />
-
-          <ButtonContainer>
-            <StyledCreatebutton
-              type="submit"
-              onClick={() => router.push("/Game501/game")}
-            >
-              Create Game
-            </StyledCreatebutton>
-          </ButtonContainer>
-        </FormContainer>
-      </>
-    );
-  }
+        <ButtonContainer>
+          <StyledButton type="submit">Log In</StyledButton>
+          <Link href="/createplayer">
+            <StyledButton type="button">Create new Player</StyledButton>
+          </Link>
+        </ButtonContainer>
+      </FormContainer>
+    </>
+  );
 }

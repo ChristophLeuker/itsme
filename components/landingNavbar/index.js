@@ -28,6 +28,7 @@ const NavbarLink = styled(Link)`
   padding: 10px;
   background: var(--button-color);
   background: linear-gradient(var(--button-color), var(--button-color-second));
+  height: 60px;
 
   &:hover {
     color: #000;
@@ -66,6 +67,7 @@ export default function Navbar() {
           <NavbarLink href={"/Game501"}>Game 501 D.O.</NavbarLink>
           <NavbarLink href={"/createplayer"}>Create new player</NavbarLink>
           <NavbarLink href={"/playerlist"}>All player profiles</NavbarLink>
+          <NavbarLink href={"/loginpage"}>Log In</NavbarLink>
         </NavbarLinks>
       </NavbarContainer>
     </>
