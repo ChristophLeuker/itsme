@@ -22,13 +22,9 @@ const Label = styled.label`
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
-`;
-
-const Button = styled.button`
-  margin-top: 20px;
-  grid-column: 1 / span 2;
-  justify-self: center;
+  position: absolute;
+  top: 325px;
+  flex-direction: column;
 `;
 
 export const StyledCreatebutton = styled.button`

@@ -14,6 +14,7 @@ const Input = styled.input`
   border: 3px solid black;
   border-radius: 0.5rem;
   width: 150px;
+  align-self: center;
 `;
 
 const Label = styled.label`
@@ -22,7 +23,8 @@ const Label = styled.label`
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
+  position: absolute;
+  top: 325px;
 `;
 
 export default function Form({ onSubmit, formName }) {

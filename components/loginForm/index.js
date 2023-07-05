@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 const FormContainer = styled.form`
@@ -22,25 +23,27 @@ const Label = styled.label`
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
   position: absolute;
   top: 325px;
-  align-self: center;
+  flex-direction: column;
 `;
 
 const StyledButton = styled.button`
   background: var(--button-color);
   background: linear-gradient(var(--button-color), var(--button-color-second));
   border-radius: 11px;
-  width: 50px;
+  width: 150px;
   height: 30px;
   color: var(--text-button-color);
   display: inline-block;
   cursor: pointer;
   text-align: center;
-  margin: 10px;
+
   bottom: 10px;
   right: 10px;
+  margin-top: 20px;
+  grid-column: 1 / span 2;
+  justify-self: center;
 `;
 
 export default function LogInForm({ formName, onSubmit }) {
@@ -60,6 +63,9 @@ export default function LogInForm({ formName, onSubmit }) {
 
         <ButtonContainer>
           <StyledButton type="submit">Log In</StyledButton>
+          <Link href="/createplayer">
+            <StyledButton type="button">Create new Player</StyledButton>
+          </Link>
         </ButtonContainer>
       </FormContainer>
     </>
