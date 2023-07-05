@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import NewGameQuestion from "../newGameQuestion";
+import TableUnit from "./table";
 
 const Container = styled.div`
   display: flex;
@@ -28,13 +29,13 @@ const TableHead = styled.th`
   text-align: center;
 `;
 
-const TableCell = styled.td`
+export const TableCell = styled.td`
   border: 1px solid black;
   text-align: center;
   height: 2rem;
 `;
 
-const InputNumber = styled.input`
+export const InputNumber = styled.input`
   width: 3rem;
   background-color: transparent;
   border: none;
@@ -148,292 +149,196 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
               <TableCell>501</TableCell>
             </tr>
             <tr>
-              <TableCell>
-                <label htmlFor="fieldOne-one" />
-                <InputNumber
-                  type="number"
-                  name="fieldOne-one"
-                  aria-label="input-field-one-from-player-one"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      const value = parseInt(e.target.value, 10);
-                      if (value >= 0 && value <= 180) {
-                        setSingleResultPlayerOne([
-                          501 - value,
-                          ...singleResultPlayerOne.slice(0 + 1),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
+              <TableUnit
+                fieldName={"fieldOne-one"}
+                ariaLabel={"input-field-one-from-player-one"}
+                handleSubmit={(e) => {
+                  if (e.key === "Enter") {
+                    const value = parseInt(e.target.value, 10);
+                    if (value >= 0 && value <= 180) {
+                      setSingleResultPlayerOne([
+                        501 - value,
+                        ...singleResultPlayerOne.slice(0 + 1),
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
                     }
-                  }}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerOne[0]}</TableCell>
-              <TableCell>
-                <label htmlFor="fieldTwo-one" />
-                <InputNumber
-                  type="number"
-                  name="fieldtwo-one"
-                  aria-label="input-field-one-from-player-two"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      const value = parseInt(e.target.value, 10);
-                      if (value >= 0 && value <= 180) {
-                        setSingleResultPlayerTwo([
-                          501 - value,
-                          ...singleResultPlayerTwo.slice(0 + 1),
-                        ]);
-                      } else {
-                        alert("insert a number between 0 and 180");
-                      }
+                  }
+                }}
+                result={singleResultPlayerOne[0]}
+              />
+              <TableUnit
+                fieldName={"fieldTwo-one"}
+                ariaLabel={"input-field-one-from-player-two"}
+                handleSubmit={(e) => {
+                  if (e.key === "Enter") {
+                    const value = parseInt(e.target.value, 10);
+                    if (value >= 0 && value <= 180) {
+                      setSingleResultPlayerTwo([
+                        501 - value,
+                        ...singleResultPlayerTwo.slice(0 + 1),
+                      ]);
+                    } else {
+                      alert("insert a number between 0 and 180");
                     }
-                  }}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerTwo[0]}</TableCell>
+                  }
+                }}
+                result={singleResultPlayerTwo[0]}
+              />
             </tr>
             <tr>
-              <TableCell>
-                <label htmlFor="fieldOne-two" />
-                <InputNumber
-                  type="number"
-                  name="fieldOne-two"
-                  aria-label="input-field-two-from-player-one"
-                  onKeyDown={(event) => handleSubmitPlayerOne(event, 0)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerOne[1]}</TableCell>
-              <TableCell>
-                <label htmlFor="fieldTwo-two" />
-                <InputNumber
-                  type="number"
-                  name="fieldtwo-two"
-                  aria-label="input-field-two-from-player-two"
-                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 0)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerTwo[1]}</TableCell>
+              <TableUnit
+                fieldName={"fieldOne-two"}
+                ariaLabel={"input-field-two-from-player-one"}
+                handleSubmit={(event) => handleSubmitPlayerOne(event, 0)}
+                result={singleResultPlayerOne[1]}
+              />
+              <TableUnit
+                fieldName={"fieldTwo-two"}
+                ariaLabel={"input-field-two-from-player-two"}
+                handleSubmit={(event) => handleSubmitPlayerTwo(event, 0)}
+                result={singleResultPlayerTwo[1]}
+              />
             </tr>
             <tr>
-              <TableCell>
-                <label htmlFor="fieldOne-three" />
-                <InputNumber
-                  type="number"
-                  name="fieldOne-three"
-                  aria-label="input-field-three-from-player-one"
-                  onKeyDown={(event) => handleSubmitPlayerOne(event, 1)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerOne[2]}</TableCell>
-              <TableCell>
-                <label htmlFor="fieldTwo-three" />
-                <InputNumber
-                  type="number"
-                  name="fieldtwo-three"
-                  aria-label="input-field-three-from-player-two"
-                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 1)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerTwo[2]}</TableCell>
+              <TableUnit
+                fieldName={"fieldOne-three"}
+                ariaLabel={"input-field-three-from-player-one"}
+                handleSubmit={(event) => handleSubmitPlayerOne(event, 1)}
+                result={singleResultPlayerOne[2]}
+              />
+              <TableUnit
+                fieldName={"fieldTwo-three"}
+                ariaLabel={"input-field-three-from-player-two"}
+                handleSubmit={(event) => handleSubmitPlayerTwo(event, 1)}
+                result={singleResultPlayerTwo[2]}
+              />
             </tr>
             <tr>
-              <TableCell>
-                <label htmlFor="fieldOne-four" />
-                <InputNumber
-                  type="number"
-                  name="fieldOne-four"
-                  aria-label="input-field-four-from-player-one"
-                  onKeyDown={(event) => handleSubmitPlayerOne(event, 2)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerOne[3]}</TableCell>
-              <TableCell>
-                <label htmlFor="fieldTwo-four" />
-                <InputNumber
-                  type="number"
-                  name="fieldtwo-four"
-                  aria-label="input-field-four-from-player-two"
-                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 2)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerTwo[3]}</TableCell>
+              <TableUnit
+                fieldName={"fieldOne-four"}
+                ariaLabel={"input-field-four-from-player-one"}
+                handleSubmit={(event) => handleSubmitPlayerOne(event, 2)}
+                result={singleResultPlayerOne[3]}
+              />
+              <TableUnit
+                fieldName={"fieldTwo-four"}
+                ariaLabel={"input-field-four-from-player-two"}
+                handleSubmit={(event) => handleSubmitPlayerTwo(event, 2)}
+                result={singleResultPlayerTwo[3]}
+              />
             </tr>
             <tr>
-              <TableCell>
-                <label htmlFor="fieldOne-five" />
-                <InputNumber
-                  type="number"
-                  name="fieldOne-five"
-                  aria-label="input-field-five-from-player-one"
-                  onKeyDown={(event) => handleSubmitPlayerOne(event, 3)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerOne[4]}</TableCell>
-              <TableCell>
-                <label htmlFor="fieldTwo-five" />
-                <InputNumber
-                  type="number"
-                  name="fieldtwo-five"
-                  aria-label="input-field-five-from-player-two"
-                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 3)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerTwo[4]}</TableCell>
+              <TableUnit
+                fieldName={"fieldOne-five"}
+                ariaLabel={"input-field-five-from-player-one"}
+                handleSubmit={(event) => handleSubmitPlayerOne(event, 3)}
+                result={singleResultPlayerOne[4]}
+              />
+              <TableUnit
+                fieldName={"fieldTwo-five"}
+                ariaLabel={"input-field-five-from-player-two"}
+                handleSubmit={(event) => handleSubmitPlayerTwo(event, 3)}
+                result={singleResultPlayerTwo[4]}
+              />
             </tr>
             <tr>
-              <TableCell>
-                <label htmlFor="fieldOne-six" />
-                <InputNumber
-                  type="number"
-                  name="fieldOne-six"
-                  aria-label="input-field-six-from-player-one"
-                  onKeyDown={(event) => handleSubmitPlayerOne(event, 4)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerOne[5]}</TableCell>
-              <TableCell>
-                <label htmlFor="fieldTwo-one" />
-                <InputNumber
-                  type="number"
-                  name="fieldtwo-one"
-                  aria-label="input-field-six-from-player-two"
-                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 4)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerTwo[5]}</TableCell>
+              <TableUnit
+                fieldName={"fieldOne-six"}
+                ariaLabel={"input-field-six-from-player-one"}
+                handleSubmit={(event) => handleSubmitPlayerOne(event, 4)}
+                result={singleResultPlayerOne[5]}
+              />
+              <TableUnit
+                fieldName={"fieldTwo-six"}
+                ariaLabel={"input-field-six-from-player-two"}
+                handleSubmit={(event) => handleSubmitPlayerTwo(event, 4)}
+                result={singleResultPlayerTwo[5]}
+              />
             </tr>
             <tr>
-              <TableCell>
-                <label htmlFor="fieldOne-seven" />
-                <InputNumber
-                  type="number"
-                  name="fieldOne-seven"
-                  aria-label="input-field-seven-from-player-one"
-                  onKeyDown={(event) => handleSubmitPlayerOne(event, 5)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerOne[6]}</TableCell>
-              <TableCell>
-                <label htmlFor="fieldTwo-seven" />
-                <InputNumber
-                  type="number"
-                  name="fieldtwo-seven"
-                  aria-label="input-field-seven-from-player-two"
-                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 5)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerTwo[6]}</TableCell>
+              <TableUnit
+                fieldName={"fieldOne-seven"}
+                ariaLabel={"input-field-seven-from-player-one"}
+                handleSubmit={(event) => handleSubmitPlayerOne(event, 5)}
+                result={singleResultPlayerOne[6]}
+              />
+              <TableUnit
+                fieldName={"fieldTwo-seven"}
+                ariaLabel={"input-field-seven-from-player-two"}
+                handleSubmit={(event) => handleSubmitPlayerTwo(event, 5)}
+                result={singleResultPlayerTwo[6]}
+              />
             </tr>
             <tr>
-              <TableCell>
-                <label htmlFor="fieldOne-eight" />
-                <InputNumber
-                  type="number"
-                  name="fieldOne-eight"
-                  aria-label="input-field-eight-from-player-one"
-                  onKeyDown={(event) => handleSubmitPlayerOne(event, 6)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerOne[7]}</TableCell>
-              <TableCell>
-                <label htmlFor="fieldTwo-eight" />
-                <InputNumber
-                  type="number"
-                  name="fieldtwo-eight"
-                  aria-label="input-field-eight-from-player-two"
-                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 6)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerTwo[7]}</TableCell>
+              <TableUnit
+                fieldName={"fieldOne-eight"}
+                ariaLabel={"input-field-eight-from-player-one"}
+                handleSubmit={(event) => handleSubmitPlayerOne(event, 6)}
+                result={singleResultPlayerOne[7]}
+              />
+              <TableUnit
+                fieldName={"fieldTwo-eight"}
+                ariaLabel={"input-field-eight-from-player-two"}
+                handleSubmit={(event) => handleSubmitPlayerTwo(event, 6)}
+                result={singleResultPlayerTwo[7]}
+              />
             </tr>
             <tr>
-              <TableCell>
-                <label htmlFor="fieldOne-nine" />
-                <InputNumber
-                  type="number"
-                  name="fieldOne-nine"
-                  aria-label="input-field-nine-from-player-one"
-                  onKeyDown={(event) => handleSubmitPlayerOne(event, 7)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerOne[8]}</TableCell>
-              <TableCell>
-                <label htmlFor="fieldTwo-nine" />
-                <InputNumber
-                  type="number"
-                  name="fieldtwo-nine"
-                  aria-label="input-field-nine-from-player-two"
-                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 7)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerTwo[8]}</TableCell>
+              <TableUnit
+                fieldName={"fieldOne-nine"}
+                ariaLabel={"input-field-nine-from-player-one"}
+                handleSubmit={(event) => handleSubmitPlayerOne(event, 7)}
+                result={singleResultPlayerOne[8]}
+              />
+              <TableUnit
+                fieldName={"fieldTwo-nine"}
+                ariaLabel={"input-field-nine-from-player-two"}
+                handleSubmit={(event) => handleSubmitPlayerTwo(event, 7)}
+                result={singleResultPlayerTwo[8]}
+              />
             </tr>
             <tr>
-              <TableCell>
-                <label htmlFor="fieldOne-ten" />
-                <InputNumber
-                  type="number"
-                  name="fieldOne-ten"
-                  aria-label="input-field-ten-from-player-one"
-                  onKeyDown={(event) => handleSubmitPlayerOne(event, 8)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerOne[9]}</TableCell>
-              <TableCell>
-                <label htmlFor="fieldTwo-ten" />
-                <InputNumber
-                  type="number"
-                  name="fieldtwo-ten"
-                  aria-label="input-field-ten-from-player-two"
-                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 8)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerTwo[9]}</TableCell>
+              <TableUnit
+                fieldName={"fieldOne-ten"}
+                ariaLabel={"input-field-ten-from-player-one"}
+                handleSubmit={(event) => handleSubmitPlayerOne(event, 8)}
+                result={singleResultPlayerOne[9]}
+              />
+              <TableUnit
+                fieldName={"fieldTwo-ten"}
+                ariaLabel={"input-field-ten-from-player-two"}
+                handleSubmit={(event) => handleSubmitPlayerTwo(event, 8)}
+                result={singleResultPlayerTwo[9]}
+              />
             </tr>
             <tr>
-              <TableCell>
-                <label htmlFor="fieldOne-eleven" />
-                <InputNumber
-                  type="number"
-                  name="fieldOne-eleven"
-                  aria-label="input-field-eleven-from-player-one"
-                  onKeyDown={(event) => handleSubmitPlayerOne(event, 9)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerOne[10]}</TableCell>
-              <TableCell>
-                <label htmlFor="fieldTwo-eleven" />
-                <InputNumber
-                  type="number"
-                  name="fieldtwo-eleven"
-                  aria-label="input-field-eleven-from-player-two"
-                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 9)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerTwo[10]}</TableCell>
+              <TableUnit
+                fieldName={"fieldOne-eleven"}
+                ariaLabel={"input-field-eleven-from-player-one"}
+                handleSubmit={(event) => handleSubmitPlayerOne(event, 9)}
+                result={singleResultPlayerOne[10]}
+              />
+              <TableUnit
+                fieldName={"fieldTwo-eleven"}
+                ariaLabel={"input-field-eleven-from-player-two"}
+                handleSubmit={(event) => handleSubmitPlayerTwo(event, 9)}
+                result={singleResultPlayerTwo[10]}
+              />
             </tr>
             <tr>
-              <TableCell>
-                <label htmlFor="fieldOne-twelve" />
-                <InputNumber
-                  type="number"
-                  name="fieldOne-twelve"
-                  aria-label="input-field-twelve-from-player-one"
-                  onKeyDown={(event) => handleSubmitPlayerOne(event, 10)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerOne[11]}</TableCell>
-              <TableCell>
-                <label htmlFor="fieldTwo-twelve" />
-                <InputNumber
-                  type="number"
-                  name="fieldtwo-twelve"
-                  aria-label="input-field-twelve-from-player-two"
-                  onKeyDown={(event) => handleSubmitPlayerTwo(event, 10)}
-                />
-              </TableCell>
-              <TableCell>{singleResultPlayerTwo[11]}</TableCell>
+              <TableUnit
+                fieldName={"fieldOne-twelve"}
+                ariaLabel={"input-field-twelve-from-player-one"}
+                handleSubmit={(event) => handleSubmitPlayerOne(event, 10)}
+                result={singleResultPlayerOne[11]}
+              />
+              <TableUnit
+                fieldName={"fieldTwo-twelve"}
+                ariaLabel={"input-field-twelve-from-player-two"}
+                handleSubmit={(event) => handleSubmitPlayerTwo(event, 10)}
+                result={singleResultPlayerTwo[11]}
+              />
             </tr>
           </tbody>
         </Table>

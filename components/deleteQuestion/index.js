@@ -51,7 +51,6 @@ const StyledQuestion = styled.p`
 `;
 
 export default function DeleteQuestion({ handleDelete }) {
-  console.log("bin hier");
   return (
     <>
       <Container>

@@ -74,7 +74,7 @@ export default function ProfileCard({
             onClick={setEditOption}
           />
         </ImageContainer>
-      </Listitem>
+      </Listitem>{" "}
       {deleteOption ? <DeleteQuestion handleDelete={onDelete} /> : null}
       {editOption ? (
         <EditForm

@@ -60,7 +60,6 @@ const StyledButton = styled.button`
   margin: 10px;
   bottom: 10px;
   right: 10px;
-  z-index: 2;
 `;
 
 export default function EditForm({
