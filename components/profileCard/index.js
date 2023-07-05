@@ -36,9 +36,11 @@ export default function ProfileCard({
   onDelete,
   hometown,
   nickname,
+  onSubmit,
 }) {
   const [deleteOption, setDeleteOption] = useState(false);
   const [editOption, setEditOption] = useState(false);
+  console.log(onDelete);
   return (
     <>
       <Listitem>
@@ -64,7 +66,7 @@ export default function ProfileCard({
       {deleteOption ? <DeleteQuestion handleDelete={onDelete} /> : null}
       {editOption ? (
         <EditForm
-          handleDelete={onDelete}
+          onSubmit={onSubmit}
           formName={"editPlayerProfiles"}
           name={name}
           email={email}

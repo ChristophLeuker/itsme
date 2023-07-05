@@ -11,4 +11,10 @@ export default async function handler(request, response) {
       .status(200)
       .json({ status: "Player profile successfully deleted" });
   }
+
+  if (request.method === "PATCH") {
+    const updatedPlayer = request.body;
+    await Player.findByIdAndUpdate(id, updatedPlayer);
+    response.status(200).json({ status: "Player successfully updated" });
+  }
 }

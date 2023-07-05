@@ -75,6 +75,8 @@ export default function EditForm({
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     onSubmit(data);
+
+    console.log(onSubmit(data));
   }
   {
     return (
