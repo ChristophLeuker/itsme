@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const FormContainer = styled.form`
   display: grid;
@@ -70,6 +71,11 @@ export default function EditForm({
   email,
   hometown,
 }) {
+  const [editedName, setEditedName] = useState(name);
+  const [editedEmail, setEditedEmail] = useState(email);
+  const [editedNickname, setEditedNickname] = useState(nickname);
+  const [editedHometown, setEditedHometown] = useState(hometown);
+
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -83,33 +89,50 @@ export default function EditForm({
       <>
         <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
           <Label htmlFor="name">Name:</Label>
-          <Input id="nameNewPlayer" name="name" type="text" value={name} />
-
+          <Input
+            name="name"
+            type="text"
+            value={editedName}
+            onChange={(event) => {
+              setEditedName(event.target.value);
+            }}
+          />
           <Label htmlFor="email">E-Mail:</Label>
           <Input
-            id="passwordNewPlayer"
             name="email"
             type="email"
-            value={email}
+            value={editedEmail}
+            onChange={(event) => {
+              setEditedEmail(event.target.value);
+            }}
           />
           <Label htmlFor="hometown">Hometown:</Label>
           <Input
-            id="emailNewPlayer"
             name="hometown"
             type="text"
-            value={hometown}
+            value={editedHometown}
+            onChange={(event) => {
+              setEditedHometown(event.target.value);
+            }}
           />
           <Label htmlFor="nickname">Nickname:</Label>
           <Input
-            id="emailNewPlayer"
             name="nickname"
             type="text"
-            value={nickname}
+            value={editedNickname}
+            onChange={(event) => {
+              setEditedNickname(event.target.value);
+            }}
           />
 
           <ButtonContainer>
             <StyledButton type="submit">Save</StyledButton>
-            <StyledButton type="submit">Abort</StyledButton>
+            <StyledButton
+              type="button"
+              onClick={() => window.location.reload()}
+            >
+              Abort
+            </StyledButton>
           </ButtonContainer>
         </FormContainer>
       </>

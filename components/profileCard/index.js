@@ -32,15 +32,27 @@ const ImageContainer = styled.div`
 
 export default function ProfileCard({
   name,
+  id,
   email,
   onDelete,
   hometown,
   nickname,
-  onSubmit,
 }) {
   const [deleteOption, setDeleteOption] = useState(false);
   const [editOption, setEditOption] = useState(false);
-  console.log(onDelete);
+
+  async function handleEdit(data) {
+    const response = await fetch(`/api/players/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      await response.json();
+      window.location.reload();
+    }
+  }
+
   return (
     <>
       <Listitem>
@@ -66,7 +78,7 @@ export default function ProfileCard({
       {deleteOption ? <DeleteQuestion handleDelete={onDelete} /> : null}
       {editOption ? (
         <EditForm
-          onSubmit={onSubmit}
+          onSubmit={handleEdit}
           formName={"editPlayerProfiles"}
           name={name}
           email={email}

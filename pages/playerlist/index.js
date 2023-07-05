@@ -32,20 +32,6 @@ export default function PlayerList() {
     }
   }
 
-  // noch nicht fertig !!
-  async function handleEdit(data) {
-    console.log(data);
-    const response = await fetch(`/api/players/${data._id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    if (response.ok) {
-      await response.json();
-      window.location.reload();
-    }
-  }
-
   return (
     <>
       <Headline>all players profiles</Headline>
@@ -55,14 +41,12 @@ export default function PlayerList() {
           return (
             <ProfileCard
               key={player._id}
+              id={player._id}
               name={player.name}
               email={player.email}
               hometown={player.hometown}
               nickname={player.nickname}
               onDelete={() => handleDelete(player._id)}
-              onSubmit={{
-                handleEdit,
-              }}
             />
           );
         })}
