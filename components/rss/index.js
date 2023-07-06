@@ -65,12 +65,13 @@ export default function RssFeedDartn() {
     <>
       <Header>Newsfeed from Dartn.de</Header>
       {items.map((item) => {
-        const formattedDate = item.pubDate.substring(0, 10);
         const date = new Date(item.pubDate);
         const customDate = date.toLocaleString("de-DE", {
           day: "2-digit",
           month: "2-digit",
           year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
         });
 
         return (
@@ -78,7 +79,6 @@ export default function RssFeedDartn() {
             <StyledLink href={item.link} target="_blank">
               <Headline>{item.title}</Headline>
             </StyledLink>
-            <PubDate>{formattedDate}</PubDate>
             <PubDate>{customDate}</PubDate>
             <Content>{item.content}</Content>
           </StyledContainer>
