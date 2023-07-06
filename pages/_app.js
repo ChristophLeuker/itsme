@@ -13,13 +13,6 @@ export default function App({ Component, pageProps }) {
     { defaultValue: "Player Two" }
   );
 
-  const [playerProfiles, setPlayerProfiles] = useLocalStorageState(
-    "playerProfiles",
-    {
-      defaultValue: [{}],
-    }
-  );
-
   function addPlayersName(data) {
     setPlayerOneName(data.namePlayerOne);
     setPlayerTwoName(data.namePlayerTwo);

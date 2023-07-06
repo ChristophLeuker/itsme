@@ -8,7 +8,13 @@ const NavbarContainer = styled.nav`
   left: 10px;
   width: 150px;
   height: 300px;
-  background-color: #f2f2f2;
+  background-image: linear-gradient(
+    to bottom,
+    var(--background-color) 50%,
+    var(--button-color) 50%
+  );
+  background-size: 100% 4px;
+  background-repeat: repeat-y;
   padding: 1rem;
   transition: left 0.3s ease-in-out;
   border: black solid 1px;
@@ -39,16 +45,18 @@ const NavbarLink = styled(Link)`
 
 const NavbarToggleButton = styled.button`
   position: fixed;
-  top: 160px;
+  top: 120px;
   display: inline-block;
   background: var(--button-color);
   background: linear-gradient(var(--button-color), var(--button-color-second));
   border: solid black 1px;
   color: var(--text-button-color);
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
   margin-left: auto;
   border-radius: 30px;
+  height: 60px;
+  width: 60px;
 `;
 
 export default function Navbar() {
