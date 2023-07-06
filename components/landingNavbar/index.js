@@ -39,16 +39,18 @@ const NavbarLink = styled(Link)`
 
 const NavbarToggleButton = styled.button`
   position: fixed;
-  top: 160px;
+  top: 120px;
   display: inline-block;
   background: var(--button-color);
   background: linear-gradient(var(--button-color), var(--button-color-second));
   border: solid black 1px;
   color: var(--text-button-color);
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
   margin-left: auto;
   border-radius: 30px;
+  height: 60px;
+  width: 60px;
 `;
 
 export default function Navbar() {

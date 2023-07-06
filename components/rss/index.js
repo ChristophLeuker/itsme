@@ -23,16 +23,18 @@ export default function RssFeedDartn() {
     display: flex;
 
     flex-direction: column;
-    background-color: grey;
+    background-color: var(--background-card-color);
     border: solid black 2px;
     height: fit-content;
-    width: 90%;
+    width: 80%;
     gap: 10px;
-    margin: 10px;
+    margin-left: 17%;
+    margin-right: 10px;
+    margin-top: 10px;
     border-radius: 20px;
   `;
 
-  const Headline = styled.h2`
+  const Headline = styled.h3`
     text-align: center;
   `;
 
@@ -43,17 +45,25 @@ export default function RssFeedDartn() {
 
   const Content = styled.p`
     text-align: block;
+    margin: 10px;
   `;
 
   const StyledLink = styled(Link)`
     color: black;
+    text-decoration: none;
     &:visited {
       color: black;
     }
   `;
+  const Header = styled.h2`
+    text-align: center;
+    margin-top: -60px;
+    font-size: 1rem;
+  `;
 
   return (
     <>
+      <Header>Newsfeed from Dartn.de</Header>
       {items.map((item) => (
         <StyledContainer key={item.guid}>
           <StyledLink href={item.link}>

@@ -6,7 +6,6 @@ export default function HomePage() {
   return (
     <>
       <Headline>Throw In - Dart App</Headline>
-
       <Navbar />
       <RssFeedDartn />
     </>
