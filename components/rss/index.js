@@ -1,32 +1,68 @@
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import Parser from "rss-parser";
+import styled from "styled-components";
 
 export default function RssFeedDartn() {
   const [items, setItems] = useState([]);
+
   useEffect(() => {
-    const fetchRSSFeed = async () => {
+    const fetchData = async () => {
       try {
-        const parser = new Parser();
-        const feed = await parser.parseURL(
-          "https://www.dartn.de/js/news.js.asp?cat=D4D898B9-94E4-4E67-B2B7-E9C871B66AEB&top=6"
-        );
-        setItems(feed.items);
+        const response = await fetch("/api/newsfeed");
+        const data = await response.json();
+        setItems(data.items);
       } catch (error) {
         console.error(error);
       }
     };
 
-    fetchRSSFeed();
+    fetchData();
   }, []);
-  console.log(items);
+
+  const StyledContainer = styled.div`
+    display: flex;
+
+    flex-direction: column;
+    background-color: grey;
+    border: solid black 2px;
+    height: fit-content;
+    width: 90%;
+    gap: 10px;
+    margin: 10px;
+    border-radius: 20px;
+  `;
+
+  const Headline = styled.h2`
+    text-align: center;
+  `;
+
+  const PubDate = styled.p`
+    text-align: center;
+    margin-top: -20px;
+  `;
+
+  const Content = styled.p`
+    text-align: block;
+  `;
+
+  const StyledLink = styled(Link)`
+    color: black;
+    &:visited {
+      color: black;
+    }
+  `;
+
   return (
-    <div>
+    <>
       {items.map((item) => (
-        <div key={item.guid}>
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
-        </div>
+        <StyledContainer key={item.guid}>
+          <StyledLink href={item.link}>
+            <Headline>{item.title}</Headline>
+          </StyledLink>
+          <PubDate>{item.pubDate}</PubDate>
+          <Content>{item.content}</Content>
+        </StyledContainer>
       ))}
-    </div>
+    </>
   );
 }
