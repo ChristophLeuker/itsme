@@ -61,6 +61,9 @@ export default function RssFeedDartn() {
     font-size: 1rem;
   `;
 
+  const ReadMore = styled.p`
+    color: blue;
+  `;
   return (
     <>
       <Header>Newsfeed from Dartn.de</Header>
@@ -80,7 +83,12 @@ export default function RssFeedDartn() {
               <Headline>{item.title}</Headline>
             </StyledLink>
             <PubDate>{customDate}</PubDate>
-            <Content>{item.content}</Content>
+            <Content>
+              {item.content}
+              <StyledLink href={item.link} target="_blank">
+                <ReadMore>Read more</ReadMore>
+              </StyledLink>
+            </Content>
           </StyledContainer>
         );
       })}
