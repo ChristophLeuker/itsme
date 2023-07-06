@@ -64,15 +64,26 @@ export default function RssFeedDartn() {
   return (
     <>
       <Header>Newsfeed from Dartn.de</Header>
-      {items.map((item) => (
-        <StyledContainer key={item.guid}>
-          <StyledLink href={item.link}>
-            <Headline>{item.title}</Headline>
-          </StyledLink>
-          <PubDate>{item.pubDate}</PubDate>
-          <Content>{item.content}</Content>
-        </StyledContainer>
-      ))}
+      {items.map((item) => {
+        const formattedDate = item.pubDate.substring(0, 10);
+        const date = new Date(item.pubDate);
+        const customDate = date.toLocaleString("de-DE", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        });
+
+        return (
+          <StyledContainer key={item.guid}>
+            <StyledLink href={item.link} target="_blank">
+              <Headline>{item.title}</Headline>
+            </StyledLink>
+            <PubDate>{formattedDate}</PubDate>
+            <PubDate>{customDate}</PubDate>
+            <Content>{item.content}</Content>
+          </StyledContainer>
+        );
+      })}
     </>
   );
 }
