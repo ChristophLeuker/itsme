@@ -34,7 +34,7 @@ export const StyledBackbutton = styled.button`
 export default function Game501({ playerOneName, playerTwoName }) {
   return (
     <>
-      <Headline>501. D.O.</Headline>
+      <Headline>501. D.O. 🎯</Headline>
       <Game501Layout
         playerOneName={playerOneName}
         playerTwoName={playerTwoName}

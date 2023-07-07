@@ -6,6 +6,20 @@ const FormContainer = styled.form`
   gap: 0.5rem;
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
+  margin-top: 20px;
+`;
+const StyleContainer = styled.div`
+  background-image: linear-gradient(
+    to bottom,
+    var(--background-color) 50%,
+    var(--button-color) 50%
+  );
+  background-size: 100% 4px;
+  background-repeat: repeat-y;
+  margin: 15px;
+  border-radius: 20px;
+  border: black solid 1px;
+  height: 250px;
 `;
 
 const Input = styled.input`
@@ -57,22 +71,24 @@ export default function Form({ onSubmit, formName }) {
   {
     return (
       <>
-        <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
-          <Label htmlFor="name">Player 1 name:</Label>
-          <Input id="namePlayerOne" name="namePlayerOne" type="text" />
+        <StyleContainer>
+          <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
+            <Label htmlFor="name">Player 1 name:</Label>
+            <Input id="namePlayerOne" name="namePlayerOne" type="text" />
 
-          <Label htmlFor="image-url">Player 2 name:</Label>
-          <Input id="namePlayerTwo" name="namePlayerTwo" type="text" />
+            <Label htmlFor="image-url">Player 2 name:</Label>
+            <Input id="namePlayerTwo" name="namePlayerTwo" type="text" />
 
-          <ButtonContainer>
-            <StyledCreatebutton
-              type="submit"
-              onClick={() => router.push("/Game501/game")}
-            >
-              Create Game
-            </StyledCreatebutton>
-          </ButtonContainer>
-        </FormContainer>
+            <ButtonContainer>
+              <StyledCreatebutton
+                type="submit"
+                onClick={() => router.push("/Game501/game")}
+              >
+                Create Game
+              </StyledCreatebutton>
+            </ButtonContainer>
+          </FormContainer>
+        </StyleContainer>
       </>
     );
   }
