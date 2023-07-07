@@ -56,9 +56,10 @@ export default function RssFeedDartn() {
     }
   `;
   const Header = styled.h2`
-    text-align: center;
-    margin-top: -60px;
-    font-size: 1rem;
+    text-align: right;
+    margin-top: -50px;
+    font-size: 0.7rem;
+    margin-right: 10px;
   `;
 
   const ReadMore = styled.p`

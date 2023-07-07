@@ -43,8 +43,12 @@ export const InputNumber = styled.input`
 
 const Hint = styled.div`
   display: flex;
-  font-size: 10px;
+  font-size: 15px;
   justify-content: center;
+  color: white;
+  font-weight: 700;
+  position: relative;
+  top: -35px;
 `;
 
 export default function Game501Layout({ playerOneName, playerTwoName }) {
