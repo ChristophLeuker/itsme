@@ -10,7 +10,7 @@ const FormContainer = styled.form`
   height: 400px;
   background-image: linear-gradient(
     to bottom,
-    transparent 50%,
+    var(--background-color) 50%,
     var(--button-color) 50%
   );
   background-size: 100% 4px;
@@ -48,6 +48,11 @@ const ButtonContainer = styled.div`
 `;
 
 const StyledButton = styled.button`
+  background-image: linear-gradient(
+    to bottom,
+    var(--background-color) 50%,
+    var(--button-color) 50%
+  );
   background: var(--button-color);
   background: linear-gradient(var(--button-color), var(--button-color-second));
   border-radius: 11px;
