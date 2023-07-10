@@ -5,7 +5,7 @@ import Link from "next/link";
 export const Headline = styled.h1`
   text-align: center;
   margin-top: 3rem;
-  background: var(--button-color);
+  background: darkgoldenrod;
   width: 100%;
   height: 100px;
   display: flex;
@@ -34,7 +34,7 @@ export const StyledBackbutton = styled.button`
 export default function Game501({ playerOneName, playerTwoName }) {
   return (
     <>
-      <Headline>501. D.O.</Headline>
+      <Headline>501. D.O. 🎯</Headline>
       <Game501Layout
         playerOneName={playerOneName}
         playerTwoName={playerTwoName}

@@ -6,6 +6,21 @@ const FormContainer = styled.form`
   gap: 0.5rem;
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
+  margin-top: 20px;
+`;
+
+const StyleContainer = styled.div`
+  background-image: linear-gradient(
+    to bottom,
+    var(--background-color) 50%,
+    var(--button-color) 50%
+  );
+  background-size: 100% 4px;
+  background-repeat: repeat-y;
+  margin: 15px;
+  border-radius: 20px;
+  border: black solid 1px;
+  height: 250px;
 `;
 
 const Input = styled.input`
@@ -24,7 +39,7 @@ const Label = styled.label`
 const ButtonContainer = styled.div`
   display: flex;
   position: absolute;
-  top: 325px;
+  top: 340px;
 `;
 
 export default function Form({ onSubmit, formName }) {
@@ -37,21 +52,23 @@ export default function Form({ onSubmit, formName }) {
   {
     return (
       <>
-        <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
-          <Label htmlFor="name">Name:</Label>
-          <Input id="nameNewPlayer" name="name" type="text" />
+        <StyleContainer>
+          <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
+            <Label htmlFor="name">Name:</Label>
+            <Input id="nameNewPlayer" name="name" type="text" />
 
-          <Label htmlFor="password">Passwort:</Label>
-          <Input id="passwordNewPlayer" name="password" type="password" />
-          <Label htmlFor="email">E-Mail</Label>
-          <Input id="emailNewPlayer" name="email" type="email" />
+            <Label htmlFor="password">Passwort:</Label>
+            <Input id="passwordNewPlayer" name="password" type="password" />
+            <Label htmlFor="email">E-Mail</Label>
+            <Input id="emailNewPlayer" name="email" type="email" />
 
-          <ButtonContainer>
-            <StyledCreatebutton type="submit">
-              Create New Profile
-            </StyledCreatebutton>
-          </ButtonContainer>
-        </FormContainer>
+            <ButtonContainer>
+              <StyledCreatebutton type="submit">
+                Create New Profile
+              </StyledCreatebutton>
+            </ButtonContainer>
+          </FormContainer>
+        </StyleContainer>
       </>
     );
   }

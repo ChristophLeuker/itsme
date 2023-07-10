@@ -6,6 +6,21 @@ const FormContainer = styled.form`
   gap: 0.5rem;
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
+  margin-top: 20px;
+`;
+
+const StyleContainer = styled.div`
+  background-image: linear-gradient(
+    to bottom,
+    var(--background-color) 50%,
+    var(--button-color) 50%
+  );
+  background-size: 100% 4px;
+  background-repeat: repeat-y;
+  margin: 15px;
+  border-radius: 20px;
+  border: black solid 1px;
+  height: 290px;
 `;
 
 const Input = styled.input`
@@ -55,19 +70,21 @@ export default function LogInForm({ formName, onSubmit }) {
   }
   return (
     <>
-      <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
-        <Label htmlFor="name">Name:</Label>
-        <Input name="name" type="text" />
-        <Label htmlFor="password">Password:</Label>
-        <Input name="password" type="password" />
+      <StyleContainer>
+        <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
+          <Label htmlFor="name">Name:</Label>
+          <Input name="name" type="text" />
+          <Label htmlFor="password">Password:</Label>
+          <Input name="password" type="password" />
 
-        <ButtonContainer>
-          <StyledButton type="submit">Log In</StyledButton>
-          <Link href="/createplayer">
-            <StyledButton type="button">Create new Player</StyledButton>
-          </Link>
-        </ButtonContainer>
-      </FormContainer>
+          <ButtonContainer>
+            <StyledButton type="submit">Log In</StyledButton>
+            <Link href="/createplayer">
+              <StyledButton type="button">Create new Player</StyledButton>
+            </Link>
+          </ButtonContainer>
+        </FormContainer>
+      </StyleContainer>
     </>
   );
 }

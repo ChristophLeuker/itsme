@@ -56,13 +56,27 @@ export default function RssFeedDartn() {
     }
   `;
   const Header = styled.h2`
-    text-align: center;
-    margin-top: -60px;
-    font-size: 1rem;
+    text-align: right;
+    margin-top: -50px;
+    font-size: 0.7rem;
+    margin-right: 10px;
   `;
 
   const ReadMore = styled.p`
     color: blue;
+  `;
+
+  const HeadlineContainer = styled.div`
+    background-image: linear-gradient(
+      to bottom,
+      var(--background-color) 50%,
+      var(--button-color) 50%
+    );
+    width: 100%;
+    background-size: 100% 4px;
+    background-repeat: repeat-y;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   `;
   return (
     <>
@@ -79,10 +93,12 @@ export default function RssFeedDartn() {
 
         return (
           <StyledContainer key={item.guid}>
-            <StyledLink href={item.link} target="_blank">
-              <Headline>{item.title}</Headline>
-            </StyledLink>
-            <PubDate>{customDate}</PubDate>
+            <HeadlineContainer>
+              <StyledLink href={item.link} target="_blank">
+                <Headline>{item.title}</Headline>
+              </StyledLink>
+              <PubDate>{customDate}</PubDate>{" "}
+            </HeadlineContainer>
             <Content>
               {item.content}
               <StyledLink href={item.link} target="_blank">
