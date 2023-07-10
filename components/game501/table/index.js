@@ -5,6 +5,7 @@ export default function TableUnit({
   ariaLabel,
   handleSubmit,
   result,
+  disabled,
 }) {
   return (
     <>
@@ -15,6 +16,7 @@ export default function TableUnit({
           name={fieldname}
           aria-label={ariaLabel}
           onKeyDown={handleSubmit}
+          disabled={disabled}
         />
       </TableCell>
       <TableCell>{result}</TableCell>

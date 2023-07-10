@@ -18,7 +18,7 @@ export default function PlayerList() {
   const { data = [], isLoading } = useSWR("/api/players");
 
   if (isLoading) {
-    return <h2>...isLoading</h2>;
+    return <h2>All player profiles are loading ...</h2>;
   }
 
   async function handleDelete(id) {

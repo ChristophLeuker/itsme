@@ -58,6 +58,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
   const [playerTwoWins, setPlayerTwoWins] = useState(false);
   const [numberDartsP1, setNumberDartsP1] = useState(0);
   const [numberDartsP2, setNumberDartsP2] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   function handleSubmitPlayerOne(event, index) {
     if (event.key === "Enter") {
@@ -69,6 +70,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
         return;
       }
       if (value > 0 && value <= 180) {
+        setCurrentIndex((prevIndex) => prevIndex + 1);
         setSingleResultPlayerOne([
           ...singleResultPlayerOne.slice(0, index + 1),
           singleResultPlayerOne[index] - value,
@@ -90,6 +92,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
         return;
       }
       if (value > 0 && value <= 180) {
+        setCurrentIndex((prevIndex) => prevIndex + 1);
         setSingleResultPlayerTwo([
           ...singleResultPlayerTwo.slice(0, index + 1),
           singleResultPlayerTwo[index] - value,
@@ -160,6 +163,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   if (e.key === "Enter") {
                     const value = parseInt(e.target.value, 10);
                     if (value >= 0 && value <= 180) {
+                      setCurrentIndex((prevIndex) => prevIndex + 1);
                       setSingleResultPlayerOne([
                         501 - value,
                         ...singleResultPlayerOne.slice(0 + 1),
@@ -178,6 +182,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   if (e.key === "Enter") {
                     const value = parseInt(e.target.value, 10);
                     if (value >= 0 && value <= 180) {
+                      setCurrentIndex((prevIndex) => prevIndex + 1);
                       setSingleResultPlayerTwo([
                         501 - value,
                         ...singleResultPlayerTwo.slice(0 + 1),
@@ -188,6 +193,7 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                   }
                 }}
                 result={singleResultPlayerTwo[0]}
+                disabled={currentIndex < 1}
               />
             </tr>
             <tr>
@@ -196,12 +202,14 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                 ariaLabel={"input-field-two-from-player-one"}
                 handleSubmit={(event) => handleSubmitPlayerOne(event, 0)}
                 result={singleResultPlayerOne[1]}
+                disabled={currentIndex < 2}
               />
               <TableUnit
                 fieldName={"fieldTwo-two"}
                 ariaLabel={"input-field-two-from-player-two"}
                 handleSubmit={(event) => handleSubmitPlayerTwo(event, 0)}
                 result={singleResultPlayerTwo[1]}
+                disabled={currentIndex < 3}
               />
             </tr>
             <tr>
@@ -210,12 +218,14 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                 ariaLabel={"input-field-three-from-player-one"}
                 handleSubmit={(event) => handleSubmitPlayerOne(event, 1)}
                 result={singleResultPlayerOne[2]}
+                disabled={currentIndex < 4}
               />
               <TableUnit
                 fieldName={"fieldTwo-three"}
                 ariaLabel={"input-field-three-from-player-two"}
                 handleSubmit={(event) => handleSubmitPlayerTwo(event, 1)}
                 result={singleResultPlayerTwo[2]}
+                disabled={currentIndex < 5}
               />
             </tr>
             <tr>
@@ -224,12 +234,14 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                 ariaLabel={"input-field-four-from-player-one"}
                 handleSubmit={(event) => handleSubmitPlayerOne(event, 2)}
                 result={singleResultPlayerOne[3]}
+                disabled={currentIndex < 6}
               />
               <TableUnit
                 fieldName={"fieldTwo-four"}
                 ariaLabel={"input-field-four-from-player-two"}
                 handleSubmit={(event) => handleSubmitPlayerTwo(event, 2)}
                 result={singleResultPlayerTwo[3]}
+                disabled={currentIndex < 7}
               />
             </tr>
             <tr>
@@ -238,12 +250,14 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                 ariaLabel={"input-field-five-from-player-one"}
                 handleSubmit={(event) => handleSubmitPlayerOne(event, 3)}
                 result={singleResultPlayerOne[4]}
+                disabled={currentIndex < 8}
               />
               <TableUnit
                 fieldName={"fieldTwo-five"}
                 ariaLabel={"input-field-five-from-player-two"}
                 handleSubmit={(event) => handleSubmitPlayerTwo(event, 3)}
                 result={singleResultPlayerTwo[4]}
+                disabled={currentIndex < 9}
               />
             </tr>
             <tr>
@@ -252,12 +266,14 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                 ariaLabel={"input-field-six-from-player-one"}
                 handleSubmit={(event) => handleSubmitPlayerOne(event, 4)}
                 result={singleResultPlayerOne[5]}
+                disabled={currentIndex < 10}
               />
               <TableUnit
                 fieldName={"fieldTwo-six"}
                 ariaLabel={"input-field-six-from-player-two"}
                 handleSubmit={(event) => handleSubmitPlayerTwo(event, 4)}
                 result={singleResultPlayerTwo[5]}
+                disabled={currentIndex < 11}
               />
             </tr>
             <tr>
@@ -266,12 +282,14 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                 ariaLabel={"input-field-seven-from-player-one"}
                 handleSubmit={(event) => handleSubmitPlayerOne(event, 5)}
                 result={singleResultPlayerOne[6]}
+                disabled={currentIndex < 12}
               />
               <TableUnit
                 fieldName={"fieldTwo-seven"}
                 ariaLabel={"input-field-seven-from-player-two"}
                 handleSubmit={(event) => handleSubmitPlayerTwo(event, 5)}
                 result={singleResultPlayerTwo[6]}
+                disabled={currentIndex < 13}
               />
             </tr>
             <tr>
@@ -280,12 +298,14 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                 ariaLabel={"input-field-eight-from-player-one"}
                 handleSubmit={(event) => handleSubmitPlayerOne(event, 6)}
                 result={singleResultPlayerOne[7]}
+                disabled={currentIndex < 14}
               />
               <TableUnit
                 fieldName={"fieldTwo-eight"}
                 ariaLabel={"input-field-eight-from-player-two"}
                 handleSubmit={(event) => handleSubmitPlayerTwo(event, 6)}
                 result={singleResultPlayerTwo[7]}
+                disabled={currentIndex < 15}
               />
             </tr>
             <tr>
@@ -294,12 +314,14 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                 ariaLabel={"input-field-nine-from-player-one"}
                 handleSubmit={(event) => handleSubmitPlayerOne(event, 7)}
                 result={singleResultPlayerOne[8]}
+                disabled={currentIndex < 16}
               />
               <TableUnit
                 fieldName={"fieldTwo-nine"}
                 ariaLabel={"input-field-nine-from-player-two"}
                 handleSubmit={(event) => handleSubmitPlayerTwo(event, 7)}
                 result={singleResultPlayerTwo[8]}
+                disabled={currentIndex < 17}
               />
             </tr>
             <tr>
@@ -308,12 +330,14 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                 ariaLabel={"input-field-ten-from-player-one"}
                 handleSubmit={(event) => handleSubmitPlayerOne(event, 8)}
                 result={singleResultPlayerOne[9]}
+                disabled={currentIndex < 18}
               />
               <TableUnit
                 fieldName={"fieldTwo-ten"}
                 ariaLabel={"input-field-ten-from-player-two"}
                 handleSubmit={(event) => handleSubmitPlayerTwo(event, 8)}
                 result={singleResultPlayerTwo[9]}
+                disabled={currentIndex < 19}
               />
             </tr>
             <tr>
@@ -322,12 +346,14 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                 ariaLabel={"input-field-eleven-from-player-one"}
                 handleSubmit={(event) => handleSubmitPlayerOne(event, 9)}
                 result={singleResultPlayerOne[10]}
+                disabled={currentIndex < 20}
               />
               <TableUnit
                 fieldName={"fieldTwo-eleven"}
                 ariaLabel={"input-field-eleven-from-player-two"}
                 handleSubmit={(event) => handleSubmitPlayerTwo(event, 9)}
                 result={singleResultPlayerTwo[10]}
+                disabled={currentIndex < 21}
               />
             </tr>
             <tr>
@@ -336,12 +362,14 @@ export default function Game501Layout({ playerOneName, playerTwoName }) {
                 ariaLabel={"input-field-twelve-from-player-one"}
                 handleSubmit={(event) => handleSubmitPlayerOne(event, 10)}
                 result={singleResultPlayerOne[11]}
+                disabled={currentIndex < 22}
               />
               <TableUnit
                 fieldName={"fieldTwo-twelve"}
                 ariaLabel={"input-field-twelve-from-player-two"}
                 handleSubmit={(event) => handleSubmitPlayerTwo(event, 10)}
                 result={singleResultPlayerTwo[11]}
+                disabled={currentIndex < 23}
               />
             </tr>
           </tbody>

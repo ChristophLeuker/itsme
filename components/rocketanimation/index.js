@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
+import Image from "next/image";
 
 const rocketAnimation = keyframes`
 0% {
@@ -11,7 +12,7 @@ const rocketAnimation = keyframes`
   }
 `;
 
-const RocketImage = styled.img`
+const RocketImage = styled(Image)`
   position: absolute;
   bottom: 0;
   left: 20%;
@@ -31,7 +32,13 @@ const RocketAnimation = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  return <>{showRocket && <RocketImage src="/rocket2.png" alt="Rocket" />}</>;
+  return (
+    <>
+      {showRocket && (
+        <RocketImage src="/rocket2.png" alt="Rocket" width={200} height={500} />
+      )}
+    </>
+  );
 };
 
 export default RocketAnimation;
