@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import RocketAnimation from "../rocketanimation";
 
 const WinnerContainer = styled.div`
   position: absolute;
@@ -56,6 +57,7 @@ export default function NewGameQuestion({
   if (playerOneWins) {
     return (
       <>
+        <RocketAnimation />
         <WinnerContainer>
           <WinnerText>
             {playerOneName} Wins in {numberDartsP1} Darts!
@@ -83,6 +85,7 @@ export default function NewGameQuestion({
   } else if (playerTwoWins) {
     return (
       <>
+        <RocketAnimation />
         <WinnerContainer>
           <WinnerText>
             {playerTwoName} Wins in {numberDartsP2} Darts!
