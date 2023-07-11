@@ -5,7 +5,7 @@ const Container = styled.div`
   height: 100px;
   background-image: linear-gradient(
     to bottom,
-    transparent 50%,
+    var(--background-color) 50%,
     var(--button-color) 50%
   );
   background-size: 100% 4px;
