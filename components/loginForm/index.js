@@ -62,18 +62,18 @@ const StyledButton = styled.button`
 `;
 
 export default function LogInForm({ formName, onSubmit }) {
-  function handleSubmit(event) {
+  /*  function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     onSubmit(data);
-  }
+  } */
   return (
     <>
       <StyleContainer>
-        <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
-          <Label htmlFor="name">Name:</Label>
-          <Input name="name" type="text" />
+        <FormContainer aria-labelledby={formName} onSubmit={onSubmit}>
+          <Label htmlFor="email">Email:</Label>
+          <Input name="email" type="email" />
           <Label htmlFor="password">Password:</Label>
           <Input name="password" type="password" />
 
