@@ -14,6 +14,8 @@ export const Headline = styled.h1`
   top: -50px;
   align-items: center;
   border-bottom: 2px solid;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 `;
 
 export const StyledBackbutton = styled.button`

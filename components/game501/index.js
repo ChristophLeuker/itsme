@@ -48,7 +48,7 @@ const Hint = styled.div`
   color: white;
   font-weight: 700;
   position: relative;
-  top: -35px;
+  top: -25px;
 `;
 
 export default function Game501Layout({ playerOneName, playerTwoName }) {

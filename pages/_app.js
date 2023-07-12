@@ -39,7 +39,7 @@ export default function App({ Component, pageProps }) {
     <>
       <BackgroundContainer>
         <BackgroundImage
-          src="/dartscheibe2.jpeg"
+          src="/Dartboard-background.jpg"
           width={200}
           height={200}
           alt="dartscheibe background"

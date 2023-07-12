@@ -43,7 +43,7 @@ export default function RssFeedDartn() {
     margin-top: -20px;
   `;
 
-  const Content = styled.p`
+  const Content = styled.div`
     text-align: block;
     margin: 10px;
   `;
@@ -57,9 +57,10 @@ export default function RssFeedDartn() {
   `;
   const Header = styled.h2`
     text-align: right;
-    margin-top: -50px;
+    margin-top: -40px;
     font-size: 0.7rem;
-    margin-right: 10px;
+    margin-right: 5px;
+    color: white;
   `;
 
   const ReadMore = styled.p`
