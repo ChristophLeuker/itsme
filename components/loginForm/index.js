@@ -62,12 +62,12 @@ const StyledButton = styled.button`
 `;
 
 export default function LogInForm({ formName, onSubmit }) {
-  /*  function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     onSubmit(data);
-  } */
+  }
   return (
     <>
       <StyleContainer>
