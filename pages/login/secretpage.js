@@ -24,29 +24,6 @@ export default function SecretSite() {
   if (isLoading) {
     return <h2>All player profiles are loading ...</h2>;
   }
-  /*   useEffect(() => {
-    const loadPlayerList = async () => {
-      try {
-        const response = await fetch(`/api/players`);
-        if (response.ok) {
-          if (response.status === 401) {
-            setLocked(true);
-            return;
-          } else {
-            throw new Error(`status: ${response.status}`);
-          }
-        }
-        const data = await response.json();
-        setPlayer(data);
-      } catch (error) {
-        console.log(error);
-        alert(error);
-      }
-    };
-    {
-      loadPlayerList();
-    }
-  }, []); */
 
   async function handleDelete(id) {
     const response = await fetch(`/api/players/${id}`, { method: "DELETE" });

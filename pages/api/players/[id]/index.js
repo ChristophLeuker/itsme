@@ -16,23 +16,15 @@ export default async function handler(req, response) {
     if (!player) {
       return response.status(404).json({ status: "Not Found" });
     }
-
+    if (token.email === "cleuker87@gmail.com") {
+      response.status(200).json(player);
+    }
     if (token.email !== player.email) {
       return response.status(401).json({ message: "Not Allowed" });
     }
 
     response.status(200).json(player);
   }
-
-  /* if (req.method === "GET") {
-    const player = await Player.findById(id);
-
-    if (!player) {
-      return response.status(404).json({ status: "Not Found" });
-    }
-
-    response.status(200).json(player);
-  } */
 
   if (req.method === "DELETE") {
     await Player.findByIdAndDelete(id);

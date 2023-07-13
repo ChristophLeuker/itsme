@@ -13,6 +13,7 @@ export default function LogInPage() {
       <Link href={"/"}>
         <StyledBackbutton>Back to Main</StyledBackbutton>
       </Link>
+      <Link href={"/login"}>Login Page</Link>
     </>
   );
 }

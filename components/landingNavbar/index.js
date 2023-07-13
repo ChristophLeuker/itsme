@@ -72,14 +72,14 @@ export default function Navbar() {
             <NavbarLink href={"/Game501"}>Game 501 D.O.</NavbarLink>
             <NavbarLink href={"/createplayer"}>Create new player</NavbarLink>
             <NavbarLink href={"/playerlist"}>All player profiles</NavbarLink>
-            <NavbarLink href={"/loginpage"}>Log In</NavbarLink>;
-            <NavbarLink href={"/loginpage"}>Log In</NavbarLink>;
+            <NavbarLink href={"/login"}>Log In</NavbarLink>;
+            <NavbarLink href={"/login"}>Log In</NavbarLink>;
           </NavbarLinks>
         </NavbarContainer>
       </>
     );
   }
-  const id = data[0]._id;
+  /* const id = data[0]._id; */
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
@@ -92,9 +92,9 @@ export default function Navbar() {
         <NavbarLinks>
           <NavbarLink href={"/Game501"}>Game 501 D.O.</NavbarLink>
           <NavbarLink href={"/createplayer"}>Create new player</NavbarLink>
+          <NavbarLink href={"/login"}>Log In</NavbarLink>
+          <NavbarLink href={`/profilepage/`}>Profile page</NavbarLink>
           <NavbarLink href={"/playerlist"}>All player profiles</NavbarLink>
-          <NavbarLink href={"/loginpage"}>Log In</NavbarLink>
-          <NavbarLink href={`/profilepage/${id}`}>ProfilePage</NavbarLink>
         </NavbarLinks>
       </NavbarContainer>
     </>

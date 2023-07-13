@@ -17,10 +17,7 @@ export default async function handler(req, response) {
     }
 
     if (token.email !== "cleuker87@gmail.com") {
-      return (
-        response.status(401).json({ message: "Not Allowed" }),
-        console.log("Nicht du")
-      );
+      return response.status(401).json({ message: "Not Allowed" });
     }
 
     response.status(200).json(player);
