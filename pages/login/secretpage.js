@@ -7,17 +7,18 @@ import ProfileCard from "../../components/profileCard";
 import { useRouter } from "next/router";
 
 export default function SecretSite() {
-  const [locked, setLocked] = useState(false);
+  const [locked, setLocked] = useState(true);
   const [player, setPlayer] = useState(null);
 
   const router = useRouter();
   const { playerId } = router.query;
   const { data = [], isLoading } = useSWR("/api/players");
-  console.log(data);
 
   useEffect(() => {
     if (data) {
       setLocked(false);
+    } else {
+      setLocked(true);
     }
   }, [data]);
   if (isLoading) {

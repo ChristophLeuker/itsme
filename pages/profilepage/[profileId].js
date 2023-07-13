@@ -14,7 +14,6 @@ export default function ProfilePage() {
   if (isLoading) {
     return <h2>...Data is Loading</h2>;
   }
-  console.log(data);
 
   return (
     <>

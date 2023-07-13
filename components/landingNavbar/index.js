@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { useState } from "react";
+import useSWR from "swr";
 
 const NavbarContainer = styled.nav`
   position: fixed;
   top: 200px;
   left: 10px;
   width: 150px;
-  height: 300px;
+  height: 370px;
   background-image: linear-gradient(
     to bottom,
     var(--background-color) 50%,
@@ -60,8 +61,25 @@ const NavbarToggleButton = styled.button`
 `;
 
 export default function Navbar() {
+  const { data = [], isLoading } = useSWR("/api/players");
   const [isOpen, setIsOpen] = useState(false);
-
+  if (isLoading) {
+    return (
+      <>
+        <NavbarToggleButton>Menu loading</NavbarToggleButton>
+        <NavbarContainer style={{ left: "-120px" }}>
+          <NavbarLinks>
+            <NavbarLink href={"/Game501"}>Game 501 D.O.</NavbarLink>
+            <NavbarLink href={"/createplayer"}>Create new player</NavbarLink>
+            <NavbarLink href={"/playerlist"}>All player profiles</NavbarLink>
+            <NavbarLink href={"/loginpage"}>Log In</NavbarLink>;
+            <NavbarLink href={"/loginpage"}>Log In</NavbarLink>;
+          </NavbarLinks>
+        </NavbarContainer>
+      </>
+    );
+  }
+  const id = data[0]._id;
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
@@ -76,6 +94,7 @@ export default function Navbar() {
           <NavbarLink href={"/createplayer"}>Create new player</NavbarLink>
           <NavbarLink href={"/playerlist"}>All player profiles</NavbarLink>
           <NavbarLink href={"/loginpage"}>Log In</NavbarLink>
+          <NavbarLink href={`/profilepage/${id}`}>ProfilePage</NavbarLink>
         </NavbarLinks>
       </NavbarContainer>
     </>

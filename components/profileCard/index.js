@@ -31,6 +31,14 @@ const ImageContainer = styled.div`
   gap: 5px;
 `;
 
+const LinktoProfile = styled(Link)`
+  color: black;
+  text-decoration: none;
+  &:visited {
+    color: black;
+  }
+`;
+
 export default function ProfileCard({
   name,
   id,
@@ -58,10 +66,10 @@ export default function ProfileCard({
   return (
     <>
       <Listitem>
-        <Link href={`profilepage/${id}`}>
+        <LinktoProfile href={`profilepage/${id}`}>
           <StyledText>NAME: {name}</StyledText>
           <StyledText>EMAIL: {email}</StyledText>
-        </Link>
+        </LinktoProfile>
         <ImageContainer>
           <Image
             src="/delete-button-svg.svg"
