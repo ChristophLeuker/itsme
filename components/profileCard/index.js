@@ -3,6 +3,7 @@ import Image from "next/image";
 import DeleteQuestion from "../deleteQuestion";
 import { useState } from "react";
 import EditForm from "../editForm";
+import Link from "next/link";
 
 const Listitem = styled.li`
   display: flex;
@@ -37,6 +38,7 @@ export default function ProfileCard({
   onDelete,
   hometown,
   nickname,
+  isLocked,
 }) {
   const [deleteOption, setDeleteOption] = useState(false);
   const [editOption, setEditOption] = useState(false);
@@ -56,8 +58,10 @@ export default function ProfileCard({
   return (
     <>
       <Listitem>
-        <StyledText>NAME: {name}</StyledText>
-        <StyledText>EMAIL: {email}</StyledText>
+        <Link href={`profilepage/${id}`}>
+          <StyledText>NAME: {name}</StyledText>
+          <StyledText>EMAIL: {email}</StyledText>
+        </Link>
         <ImageContainer>
           <Image
             src="/delete-button-svg.svg"
