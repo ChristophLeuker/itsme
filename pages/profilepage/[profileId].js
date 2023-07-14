@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router.js";
 import styled from "styled-components";
+import { Headline } from "../Game501/game";
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -32,5 +33,16 @@ export default function ProfilePage() {
     }
   }, [profileId]);
 
-  return <>{locked ? <p>Go Away !</p> : <p>Hello {player?.name}</p>}</>;
+  return (
+    <>
+      {locked ? (
+        <p>Go Away !</p>
+      ) : (
+        <>
+          <Headline>Profile page</Headline>
+          <p>Hello {player?.name}</p>
+        </>
+      )}
+    </>
+  );
 }

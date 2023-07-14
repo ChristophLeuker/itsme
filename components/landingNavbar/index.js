@@ -61,28 +61,30 @@ const NavbarToggleButton = styled.button`
 `;
 
 export default function Navbar() {
-  const { data = [], isLoading } = useSWR("/api/players");
+  const { data, isLoading } = useSWR("/api/players");
   const [isOpen, setIsOpen] = useState(false);
   if (isLoading) {
     return (
       <>
-        <NavbarToggleButton>Menu loading</NavbarToggleButton>
+        <NavbarToggleButton>Menu loads</NavbarToggleButton>
         <NavbarContainer style={{ left: "-120px" }}>
           <NavbarLinks>
             <NavbarLink href={"/Game501"}>Game 501 D.O.</NavbarLink>
             <NavbarLink href={"/createplayer"}>Create new player</NavbarLink>
+            <NavbarLink href={"/createplayer"}>Log In</NavbarLink>
+            {/* <NavbarLink href={"/login"}>Log In</NavbarLink>; */}
+            <NavbarLink href={`/profilepage/`}>Profile page</NavbarLink>
             <NavbarLink href={"/playerlist"}>All player profiles</NavbarLink>
-            <NavbarLink href={"/login"}>Log In</NavbarLink>;
-            <NavbarLink href={"/login"}>Log In</NavbarLink>;
           </NavbarLinks>
         </NavbarContainer>
       </>
     );
   }
-  /* const id = data[0]._id; */
+
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
+  console.log(data);
   return (
     <>
       <NavbarToggleButton onClick={toggleNavbar}>
@@ -93,7 +95,13 @@ export default function Navbar() {
           <NavbarLink href={"/Game501"}>Game 501 D.O.</NavbarLink>
           <NavbarLink href={"/createplayer"}>Create new player</NavbarLink>
           <NavbarLink href={"/login"}>Log In</NavbarLink>
-          <NavbarLink href={`/profilepage/`}>Profile page</NavbarLink>
+          {data ? (
+            <NavbarLink href={`/profilepage/${data[0]._id}`}>
+              Profile page
+            </NavbarLink>
+          ) : (
+            <NavbarLink href={`/profilepage/`}>Profile page</NavbarLink>
+          )}
           <NavbarLink href={"/playerlist"}>All player profiles</NavbarLink>
         </NavbarLinks>
       </NavbarContainer>

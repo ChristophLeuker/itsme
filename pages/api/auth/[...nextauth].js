@@ -45,13 +45,3 @@ export const authOptions = {
 };
 
 export default NextAuth(authOptions);
-
-/* export const authOptions = {
-  providers: [
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
-  ],
-};
-export default NextAuth(authOptions); */
