@@ -40,7 +40,7 @@ export default function ProfilePage() {
       ) : (
         <>
           <Headline>Profile page</Headline>
-          <p>Hello {player?.name}</p>
+          <p>Welcome {player?.name}</p>
         </>
       )}
     </>
