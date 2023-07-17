@@ -31,7 +31,6 @@ if (process.env.VERCEL_ENV === "preview") {
     })
   );
 } else {
-  // If not on preview, we use the GithubProvider as before
   providers.push(
     GithubProvider({
       clientId: process.env.GITHUB_ID,

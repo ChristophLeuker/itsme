@@ -17,7 +17,7 @@ export default async function handler(req, response) {
       return response.status(404).json({ status: "Not Found" });
     }
     if (token.email === "cleuker87@gmail.com") {
-      response.status(200).json(player);
+      return response.status(200).json(player);
     }
     if (token.email !== player.email) {
       return response.status(401).json({ message: "Not Allowed" });

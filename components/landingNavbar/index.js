@@ -72,7 +72,6 @@ export default function Navbar() {
             <NavbarLink href={"/Game501"}>Game 501 D.O.</NavbarLink>
             <NavbarLink href={"/createplayer"}>Create new player</NavbarLink>
             <NavbarLink href={"/createplayer"}>Log In</NavbarLink>
-            {/* <NavbarLink href={"/login"}>Log In</NavbarLink>; */}
             <NavbarLink href={`/profilepage/`}>Profile page</NavbarLink>
             <NavbarLink href={"/playerlist"}>All player profiles</NavbarLink>
           </NavbarLinks>
@@ -84,7 +83,6 @@ export default function Navbar() {
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
-  console.log(data);
   return (
     <>
       <NavbarToggleButton onClick={toggleNavbar}>
