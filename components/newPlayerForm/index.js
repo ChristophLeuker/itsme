@@ -20,7 +20,7 @@ const StyleContainer = styled.div`
   margin: 15px;
   border-radius: 20px;
   border: black solid 1px;
-  height: 250px;
+  height: 350px;
 `;
 
 const Input = styled.input`
@@ -39,7 +39,7 @@ const Label = styled.label`
 const ButtonContainer = styled.div`
   display: flex;
   position: absolute;
-  top: 340px;
+  top: 440px;
 `;
 
 export default function Form({ onSubmit, formName }) {
@@ -59,8 +59,12 @@ export default function Form({ onSubmit, formName }) {
 
             <Label htmlFor="password">Passwort:</Label>
             <Input id="passwordNewPlayer" name="password" type="password" />
-            <Label htmlFor="email">E-Mail</Label>
+            <Label htmlFor="email">E-Mail:</Label>
             <Input id="emailNewPlayer" name="email" type="email" />
+            <Label htmlFor="hometown">Hometown:</Label>
+            <Input id="hometownNewPlayer" name="hometown" type="text" />
+            <Label htmlFor="nickname">Nickname:</Label>
+            <Input id="nicknameNewPlayer" name="nickname" type="text" />
 
             <ButtonContainer>
               <StyledCreatebutton type="submit">

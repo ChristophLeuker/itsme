@@ -14,8 +14,7 @@ export default function CreateNewPlayerSite() {
     });
 
     if (response.ok) {
-      const data = await response.json();
-      console.log(data);
+      await response.json();
       router.push("/");
     }
   }

@@ -3,10 +3,14 @@ import GlobalStyle from "../styles";
 import { SWRConfig } from "swr";
 import styled from "styled-components";
 import Image from "next/image";
+import { SessionProvider } from "next-auth/react";
 
 import useLocalStorageState from "use-local-storage-state";
 
-export default function App({ Component, pageProps }) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   const BackgroundContainer = styled.div`
     position: fixed;
     top: 0;
@@ -36,7 +40,7 @@ export default function App({ Component, pageProps }) {
   }
 
   return (
-    <>
+    <SessionProvider session={session}>
       <BackgroundContainer>
         <BackgroundImage
           src="/Dartboard-background.jpg"
@@ -64,6 +68,6 @@ export default function App({ Component, pageProps }) {
           addPlayersName={addPlayersName}
         />
       </SWRConfig>
-    </>
+    </SessionProvider>
   );
 }
