@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { StyledCreatebutton } from "../createForm";
+import { useState } from "react";
 
 const FormContainer = styled.form`
   display: grid;
@@ -43,12 +44,15 @@ const ButtonContainer = styled.div`
 `;
 
 export default function Form({ onSubmit, formName }) {
+  const [disabled, setDisabled] = useState(false);
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     onSubmit(data);
+    setDisabled(true);
   }
+
   {
     return (
       <>
@@ -67,7 +71,7 @@ export default function Form({ onSubmit, formName }) {
             <Input id="nicknameNewPlayer" name="nickname" type="text" />
 
             <ButtonContainer>
-              <StyledCreatebutton type="submit">
+              <StyledCreatebutton type="submit" disabled={disabled}>
                 Create New Profile
               </StyledCreatebutton>
             </ButtonContainer>
