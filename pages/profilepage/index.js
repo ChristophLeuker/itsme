@@ -51,7 +51,7 @@ const StyledButton = styled.button`
   border-radius: 11px;
   width: 150px;
   height: 130px;
-  color: var(--text-button-color);
+
   display: inline-block;
   cursor: pointer;
   text-align: center;
