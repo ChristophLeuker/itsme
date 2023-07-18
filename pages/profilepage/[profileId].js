@@ -24,11 +24,12 @@ const Container = styled.div`
   justify-content: center;
   left: 50%;
   transform: translateX(-50%);
+  padding: 10px;
 `;
 
 const WelcomeText = styled.p`
   position: absolute;
-  top: 0px;
+  top: -20px;
   left: 50%;
   transform: translateX(-50%);
   justify-self: center;
@@ -39,6 +40,7 @@ const WelcomeText = styled.p`
 
 const InfoText = styled.p`
   font-size: 1.3rem;
+  padding: 0px;
 `;
 
 export default function ProfilePage() {
@@ -74,14 +76,16 @@ export default function ProfilePage() {
   return (
     <>
       {locked ? (
-        <p>Go Away !</p>
+        <p>🔒 Unauthorized</p>
       ) : (
         <>
-          <Headline>Profile page</Headline>
+          <Headline>Personal profile page</Headline>
           <Container>
             <WelcomeText>Welcome {player?.name}</WelcomeText>
+            <InfoText>Email: {player?.email}</InfoText>
             <InfoText>Hometown: {player?.hometown}</InfoText>
             <InfoText>Nickname: {player?.nickname}</InfoText>
+            <InfoText>Statistics:</InfoText>
           </Container>
           <Link href={"/"}>
             <StyledBackbutton>Back to Main</StyledBackbutton>

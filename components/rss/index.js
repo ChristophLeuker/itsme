@@ -82,7 +82,7 @@ export default function RssFeedDartn() {
   return (
     <>
       <Header>Newsfeed from Dartn.de</Header>
-      {items.map((item) => {
+      {items?.map((item) => {
         const date = new Date(item.pubDate);
         const customDate = date.toLocaleString("de-DE", {
           day: "2-digit",

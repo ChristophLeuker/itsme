@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useSWR from "swr";
+import { useSession } from "next-auth/react";
 
 const NavbarContainer = styled.nav`
   position: fixed;
@@ -60,9 +61,11 @@ const NavbarToggleButton = styled.button`
   width: 60px;
 `;
 
-export default function Navbar() {
+export default function Navbar({ profilelink }) {
   const { data, isLoading } = useSWR("/api/players");
   const [isOpen, setIsOpen] = useState(false);
+  const { data: session } = useSession();
+
   if (isLoading) {
     return (
       <>
@@ -80,6 +83,10 @@ export default function Navbar() {
     );
   }
 
+  const profileId = data?.find(
+    (item) => item.email === session.user.email
+  )?._id;
+
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
@@ -94,7 +101,7 @@ export default function Navbar() {
           <NavbarLink href={"/createplayer"}>Create new player</NavbarLink>
           <NavbarLink href={"/login"}>Log In</NavbarLink>
           {data ? (
-            <NavbarLink href={`/profilepage/${data[0]._id}`}>
+            <NavbarLink href={`/profilepage/${profileId}`}>
               Profile page
             </NavbarLink>
           ) : (
