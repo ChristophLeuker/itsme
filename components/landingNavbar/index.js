@@ -107,7 +107,9 @@ export default function Navbar({ profilelink }) {
           ) : (
             <NavbarLink href={`/profilepage/`}>Profile page</NavbarLink>
           )}
-          <NavbarLink href={"/playerlist"}>All player profiles</NavbarLink>
+          {session?.user.email === "cleuker87@gmail.com" && (
+            <NavbarLink href={"/playerlist"}>All player profiles</NavbarLink>
+          )}
         </NavbarLinks>
       </NavbarContainer>
     </>

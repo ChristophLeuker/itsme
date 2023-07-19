@@ -44,6 +44,7 @@ const LogInHead = styled.h2`
 
 const ButtonText = styled.p`
   font-size: 3rem;
+  color: white;
 `;
 export default function LogInTest() {
   const { data: session } = useSession();

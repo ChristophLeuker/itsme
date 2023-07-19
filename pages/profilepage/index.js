@@ -64,6 +64,7 @@ const StyledButton = styled.button`
 `;
 const ButtonText = styled.p`
   font-size: 2rem;
+  color: white;
 `;
 export default function NoProfileFound() {
   return (
