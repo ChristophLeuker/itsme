@@ -17,7 +17,7 @@ const Container = styled.div`
   background-size: 100% 4px;
   background-repeat: repeat-y;
   border: solid black 2px;
-  height: 400px;
+  height: fit-content;
   width: 80%;
   gap: 10px;
   border-radius: 20px;
@@ -25,13 +25,11 @@ const Container = styled.div`
   left: 50%;
   transform: translateX(-50%);
   padding: 10px;
+  margin-top: -40px;
 `;
 
 const WelcomeText = styled.p`
-  position: absolute;
   top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
   justify-self: center;
   font-size: 2rem;
   text-align: center;
@@ -72,7 +70,6 @@ export default function ProfilePage() {
       loadPlayerDetails();
     }
   }, [profileId]);
-
   return (
     <>
       {locked ? (
@@ -81,7 +78,7 @@ export default function ProfilePage() {
         <>
           <Headline>Personal profile page</Headline>
           <Container>
-            <WelcomeText>Welcome {player?.name}</WelcomeText>
+            <WelcomeText>Welcome {player?.name} 🎯</WelcomeText>
             <InfoText>Email: {player?.email}</InfoText>
             <InfoText>Hometown: {player?.hometown}</InfoText>
             <InfoText>Nickname: {player?.nickname}</InfoText>

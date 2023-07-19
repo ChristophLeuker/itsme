@@ -12,7 +12,7 @@ const Listitem = styled.li`
   border-radius: 20px;
   flex-direction: column;
   width: 90%;
-  height: 4rem;
+  height: fit-content;
   margin-top: 1rem;
   padding: 0.7rem;
   position: relative;
@@ -46,7 +46,6 @@ export default function ProfileCard({
   onDelete,
   hometown,
   nickname,
-  isLocked,
 }) {
   const [deleteOption, setDeleteOption] = useState(false);
   const [editOption, setEditOption] = useState(false);

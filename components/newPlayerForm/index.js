@@ -43,14 +43,12 @@ const ButtonContainer = styled.div`
   top: 440px;
 `;
 
-export default function Form({ onSubmit, formName }) {
-  const [disabled, setDisabled] = useState(false);
+export default function Form({ onSubmit, formName, disabled }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     onSubmit(data);
-    setDisabled(true);
   }
 
   {
