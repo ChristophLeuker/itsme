@@ -1,4 +1,4 @@
-import { Headline, StyledBackbutton } from "../Game501/game";
+import { Headline, StyledBackbutton } from "../cv/game";
 import CreateNewPlayer from "../../components/newPlayer";
 import { useRouter } from "next/router";
 import Link from "next/link";

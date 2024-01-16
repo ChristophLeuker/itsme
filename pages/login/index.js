@@ -1,5 +1,5 @@
 import { useSession, signIn, signOut } from "next-auth/react";
-import { Headline, StyledBackbutton } from "../Game501/game";
+import { Headline, StyledBackbutton } from "../cv/game";
 import Link from "next/link";
 import styled from "styled-components";
 
