@@ -21,7 +21,7 @@ const ButtonContainer = styled.div`
 
 const StyledButton = styled(Link)`
   text-decoration: none;
-  background-color: #3498db;
+  background-color: darkorange;
   color: #fff;
   padding: 10px 20px;
   border-radius: 10px;
@@ -29,7 +29,7 @@ const StyledButton = styled(Link)`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #2980b9;
+    background-color: red;
   }
 `;
 
