@@ -1,14 +1,16 @@
 
 import styled from "styled-components";
-import { ButtonContainer, StyledButton, HeaderWrapper, HeaderText } from "../cv";
+import { ButtonContainer, StyledButton} from "../cv";
+import { HeaderWrapper, HeaderText } from "..";
 
 export default function skills() {
   return (<>
    
-   <HeaderWrapper/>
-<HeaderText/>
+   <HeaderWrapper>
+      <HeaderText>This is me - Christoph Leuker</HeaderText>
+      </HeaderWrapper>
 <ButtonContainer>
-  <StyledButton href={"/"}/>
+<StyledButton href={"/"}> Back </StyledButton>
 </ButtonContainer>
     </>
   );

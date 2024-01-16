@@ -2,14 +2,14 @@ import styled from "styled-components";
 import Link from "next/link";
 
 
-const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.div`
   background-color: darkorange;
   color: white;
   padding: 20px;
   text-align: center;
 `;
 
-const HeaderText = styled.h1`
+export const HeaderText = styled.h1`
   margin: 0;
 `;
 
@@ -37,12 +37,12 @@ const StyledButton = styled(Link)`
 export default function HomePage() {
   return (
     <><HeaderWrapper>
-      <HeaderText>This is me - ChristophLeuker</HeaderText>
+      <HeaderText>This is me - Christoph Leuker</HeaderText>
       </HeaderWrapper>
             <ButtonContainer>
       <StyledButton href={"/cv"}>CV</StyledButton>
-      <StyledButton href={"/cv"}>CONSULTANT</StyledButton>
-      <StyledButton href={"/cv"}>SKILLS</StyledButton>
+      <StyledButton href={"/consultant"}>CONSULTANT</StyledButton>
+      <StyledButton href={"/skills"}>SKILLS</StyledButton>
     </ButtonContainer>
     </>
   );

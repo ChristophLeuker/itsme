@@ -1,4 +1,5 @@
-import { ButtonContainer, StyledButton, HeaderWrapper, HeaderText } from "../cv";
+import { ButtonContainer, StyledButton } from "../cv";
+import { HeaderWrapper, HeaderText } from "..";
 
 export default function consultant({ }) {
   return (
@@ -7,10 +8,11 @@ export default function consultant({ }) {
       
       <h1>CONSI Seite</h1>
       
-   <HeaderWrapper/>
-<HeaderText/>
+      <HeaderWrapper>
+      <HeaderText>This is me - Christoph Leuker</HeaderText>
+      </HeaderWrapper>
 <ButtonContainer>
-  <StyledButton href={"/"}/>
+<StyledButton href={"/"}> Back </StyledButton>
 </ButtonContainer>
     </>
   );

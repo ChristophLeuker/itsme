@@ -1,22 +1,13 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { HeaderWrapper, HeaderText } from "..";
 
 
-export const HeaderWrapper = styled.div`
-  background-color: darkorange;
-  color: white;
-  padding: 20px;
-  text-align: center;
-`;
-
-export const HeaderText = styled.h1`
-  margin: 0;
-`;
 
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  margin-top: 900px; /* Abstand nach oben anpassen */
+  margin-top: 800px; /* Abstand nach oben anpassen */
   text-align: center;
 `;
 
@@ -39,10 +30,11 @@ export default function cv() {
   return (
     <>
      
-      <HeaderWrapper/>
-<HeaderText/>
+     <HeaderWrapper>
+      <HeaderText>This is me - Christoph Leuker</HeaderText>
+      </HeaderWrapper>
 <ButtonContainer>
-  <StyledButton href={"/"}/>
+  <StyledButton href={"/"}> Back </StyledButton>
 </ButtonContainer>
     </>
   );
