@@ -1,5 +1,4 @@
-import { useSession, signIn, signOut } from "next-auth/react";
-import { Headline, StyledBackbutton } from "../cv/game";
+
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -47,31 +46,7 @@ const ButtonText = styled.p`
   color: white;
 `;
 export default function LogInTest() {
-  const { data: session } = useSession();
-  return (
-    <>
-      <Headline>Log In</Headline>
-      <Container>
-        <LogInHead>Log In:</LogInHead>
-        {session ? (
-          <>
-            <LogInButton type="button" onClick={signOut}>
-              <ButtonText>Push to log out</ButtonText>
-            </LogInButton>
-            <LogInText>You are sign in as {session.user.email}</LogInText>
-          </>
-        ) : (
-          <>
-            <LogInButton type="button" onClick={() => signIn("github")}>
-              <ButtonText>Push to log in</ButtonText>
-            </LogInButton>
-            <LogInText>Please log in to verify yourself.</LogInText>
-          </>
-        )}
-      </Container>
-      <Link href={"/"}>
-        <StyledBackbutton>Back</StyledBackbutton>
-      </Link>
+  return (<>
     </>
   );
 }

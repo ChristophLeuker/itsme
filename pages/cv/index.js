@@ -1,15 +1,24 @@
-import { Headline, StyledBackbutton } from "./game";
-import CreateGame from "../../components/createGame";
+import styled from "styled-components";
 import Link from "next/link";
 
-export default function SetUpGame({ addPlayersName }) {
+const HeaderWrapper = styled.div`
+  background-color: darkorange;
+  color: white;
+  padding: 20px;
+  text-align: center;
+`;
+
+const Container = styled.div`
+display: flex;
+padding top: 200px;
+`
+
+export default function cv() {
   return (
     <>
-      <Headline>Setup New Game</Headline>
-      <CreateGame onSubmit={addPlayersName} />
-      <Link href={"/"}>
-        <StyledBackbutton> Back to Main </StyledBackbutton>
-      </Link>
+     
+      <Container/>
+      <HeaderWrapper/>
     </>
   );
 }
