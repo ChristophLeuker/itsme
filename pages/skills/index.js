@@ -1,5 +1,4 @@
 
-import Link from "next/link";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -45,7 +44,7 @@ const ButtonText = styled.p`
   font-size: 3rem;
   color: white;
 `;
-export default function LogInTest() {
+export default function skills() {
   return (<>
     </>
   );

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
+import Link from "next/link";
 
 
 const HeaderWrapper = styled.div`
@@ -39,7 +39,11 @@ export default function HomePage() {
     <><HeaderWrapper>
       <HeaderText>This is me - ChristophLeuker</HeaderText>
       </HeaderWrapper>
-          
+            <ButtonContainer>
+      <StyledButton href={"/cv"}>CV</StyledButton>
+      <StyledButton href={"/cv"}>CONSULTANT</StyledButton>
+      <StyledButton href={"/cv"}>SKILLS</StyledButton>
+    </ButtonContainer>
     </>
   );
 }
