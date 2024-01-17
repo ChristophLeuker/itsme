@@ -26,7 +26,7 @@ const Button = styled.button`
 `;
  
 export default function Skills() {
-  const phrases = ['Teamfähig', 'Ehrgeizig', 'Schnelle Auffassung', 'Kreativ'];
+  const phrases = ['Teamfähig', 'Ehrgeizig', 'schnelle Auffassung', 'Kommunikativ', 'Lebenserfahrung', 'Zuverlässig', 'offen für neue Technologien', 'Empathisch'];
 
  const [currentIndex, setCurrentIndex] = useState(0);
 
