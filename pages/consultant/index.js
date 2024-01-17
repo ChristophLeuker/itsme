@@ -1,84 +1,80 @@
 
+import { ButtonContainer, StyledButton, TextContainer, Text} from "../cv";
+import { HeaderWrapper, HeaderText } from "..";
 import styled from "styled-components";
-import Link from "next/link";
 import Image from "next/image";
-
-
-export const HeaderWrapper = styled.div`
-  background-color: darkorange;
-  color: white;
-  padding: 20px;
-  text-align: center;
-`;
-
-export const HeaderText = styled.h1`
-  margin: 0;
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  margin-top: 100px; /* Abstand nach oben anpassen */
-`;
-
-const StyledButton = styled(Link)`
-  text-decoration: none;
-  background-color: darkorange;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 10px;
-  text-align: center;
-  transition: background-color 0.3s ease;
-font-size: 3rem;
-  &:hover {
-    background-color: red;
-  }
-`;
 
 const StyledImage = styled(Image)`
   display: flex;
  border-radius: 20%;
 `;
 
-const ContainerPic = styled.div`
+const PicContainer = styled.div`
+display: flex`
+
+const ContainerPic1 = styled.div`
 display:flex;
-margin-top:50px;
-margin-left: 790px;
+margin-top:250px;
+margin-left: 90px;
 border-radius: 10%;
 `
-
 const ContainerPic2 = styled.div`
 display:flex;
-margin-top:-400px;
-margin-left: 1300px;
-border-radius: 10%;
+margin-top:150px;
+margin-left: 80px;
+`
+const ContainerPic3 = styled.div`
+display:flex;
+margin-top:250px;
+margin-left: 80px;
 `
 
+const ContainerPic4 = styled.div`
+display:flex;
+margin-top:150px;
+margin-left: 80px;
+`
 
-export default function HomePage() {
+export default function consultant({ }) {
   return (
-    <><HeaderWrapper>
+    <>
+      <HeaderWrapper>
       <HeaderText>This is me - Christoph Leuker</HeaderText>
       </HeaderWrapper>
-            <ButtonContainer>
-      <StyledButton href={"/cv"}>Was bisher geschah</StyledButton>
-      <StyledButton href={"/consultant"}>Warum IT Consultant</StyledButton>
-      <StyledButton href={"/skills"}>Meine Skills</StyledButton>
-    </ButtonContainer>
-    <ContainerPic>
-    <StyledImage src="/me.jpg"
-      alt="Selbst Bild"
-      width={350}
-      height={450}
-      />
-    </ContainerPic>
-    <ContainerPic2>
-    <StyledImage src="/Computacenter.png"
-      alt="CC Bild"
+      <TextContainer>
+  <Text>Warum IT Consulting</Text>
+</TextContainer>
+<PicContainer>
+      <ContainerPic1>
+      <StyledImage src="/con1.jpg"
+      alt="Consulting Bild"
       width={350}
       height={350}
-      />
-    </ContainerPic2>
+      /></ContainerPic1>
+         <ContainerPic2>
+      <StyledImage src="/con2.jpg"
+      alt="Con2 Bild"
+      width={350}
+      height={350}
+      /></ContainerPic2>
+         <ContainerPic3>
+      <StyledImage src="/devops.png"
+      alt="devops Bild"
+      width={350}
+      height={350}
+      /></ContainerPic3>
+       <ContainerPic4>
+      <StyledImage src="/con3.jpg"
+      alt="Con3 Bild"
+      width={350}
+      height={350}
+      /></ContainerPic4>
+      </PicContainer>
+
+
+<ButtonContainer>
+<StyledButton href={"/"}> Back </StyledButton>
+</ButtonContainer>
     </>
   );
 }
