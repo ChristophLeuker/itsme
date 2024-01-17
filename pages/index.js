@@ -1,5 +1,7 @@
+
 import styled from "styled-components";
 import Link from "next/link";
+import Image from "next/image";
 
 
 export const HeaderWrapper = styled.div`
@@ -16,7 +18,7 @@ export const HeaderText = styled.h1`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  margin-top: 200px; /* Abstand nach oben anpassen */
+  margin-top: 100px; /* Abstand nach oben anpassen */
 `;
 
 const StyledButton = styled(Link)`
@@ -27,11 +29,30 @@ const StyledButton = styled(Link)`
   border-radius: 10px;
   text-align: center;
   transition: background-color 0.3s ease;
-
+font-size: 3rem;
   &:hover {
     background-color: red;
   }
 `;
+
+const StyledImage = styled(Image)`
+  display: flex;
+ border-radius: 20%;
+`;
+
+const ContainerPic = styled.div`
+display:flex;
+margin-top:50px;
+margin-left: 790px;
+border-radius: 10%;
+`
+
+const ContainerPic2 = styled.div`
+display:flex;
+margin-top:-400px;
+margin-left: 1300px;
+border-radius: 10%;
+`
 
 
 export default function HomePage() {
@@ -40,10 +61,24 @@ export default function HomePage() {
       <HeaderText>This is me - Christoph Leuker</HeaderText>
       </HeaderWrapper>
             <ButtonContainer>
-      <StyledButton href={"/cv"}>CV</StyledButton>
-      <StyledButton href={"/consultant"}>CONSULTANT</StyledButton>
-      <StyledButton href={"/skills"}>SKILLS</StyledButton>
+      <StyledButton href={"/cv"}>Was bisher geschah</StyledButton>
+      <StyledButton href={"/consultant"}>Warum IT Consultant</StyledButton>
+      <StyledButton href={"/skills"}>Meine Skills</StyledButton>
     </ButtonContainer>
+    <ContainerPic>
+    <StyledImage src="/me.jpg"
+      alt="Selbst Bild"
+      width={350}
+      height={450}
+      />
+    </ContainerPic>
+    <ContainerPic2>
+    <StyledImage src="/Computacenter.png"
+      alt="CC Bild"
+      width={350}
+      height={350}
+      />
+    </ContainerPic2>
     </>
   );
 }
