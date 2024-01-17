@@ -27,7 +27,7 @@ export const StyledButton = styled(Link)`
   }
 `;
 
-const TextContainer = styled.div`
+export const TextContainer = styled.div`
   background-color: darkorange;
   padding: 20px;
   position: absolute;
@@ -36,7 +36,7 @@ const TextContainer = styled.div`
   border-radius: 20%;
 `;
 
-const Text = styled.h2`
+export const Text = styled.h2`
   color: white;
   margin: 0;
   font-size: 2rem;
@@ -53,7 +53,7 @@ display: flex`
 const ContainerPic1 = styled.div`
 display:flex;
 margin-top:250px;
-margin-left: 30px;
+margin-left: 90px;
 border-radius: 10%;
 `
 const ContainerPic2 = styled.div`
