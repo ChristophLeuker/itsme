@@ -43,14 +43,14 @@ const StyledImage = styled(Image)`
 const ContainerPic = styled.div`
 display:flex;
 margin-top:50px;
-margin-left: 790px;
+margin-left: 490px;
 border-radius: 10%;
 `
 
 const ContainerPic2 = styled.div`
 display:flex;
 margin-top:-400px;
-margin-left: 1300px;
+margin-left: 1200px;
 border-radius: 10%;
 `
 
