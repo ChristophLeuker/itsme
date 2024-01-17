@@ -24,11 +24,11 @@ const Button = styled.button`
   color: white;
   border-radius: 10%;
 `;
-
-export default function skills() {
+ 
+export default function Skills() {
   const phrases = ['Teamfähig', 'Ehrgeizig', 'Schnelle Auffassung', 'Kreativ'];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+ const [currentIndex, setCurrentIndex] = useState(0);
 
   const changePhrase = () => {
     const nextIndex = (currentIndex + 1) % phrases.length;
